@@ -3,6 +3,23 @@ const iconPathURL = {
   bus: require('../assets/images/bus.png'),
   onboarding: require('../assets/images/onboarding.png'),
   ticket: require('../assets/images/ticket.png'),
+  google: require('../assets/images/google.png'),
+  facebook: require('../assets/images/facebook.png'),
+  apple: require('../assets/images/apple.png'),
+  backArrow: require('../assets/images/backArrow.png'),
+  dropdown: require('../assets/images/dropdown.png'),
+  calender: require('../assets/images/calender.png'),
+  call: require('../assets/images/call.png'),
+  lock: require('../assets/images/lock.png'),
+  protected: require('../assets/images/protected.png'),
+  person: require('../assets/images/person.png'),
+  email: require('../assets/images/email.png'),
+  cancel: require('../assets/images/cancel.png'),
+  check: require('../assets/images/check.png'),
+  unCheck: require('../assets/images/uncheck.png'),
+  tick: require('../assets/images/tick.png'),
+  busStatic: require('../assets/images/busStatic.png'),
+  success: require('../assets/images/success.png'),
 };
 
 export {iconPathURL};

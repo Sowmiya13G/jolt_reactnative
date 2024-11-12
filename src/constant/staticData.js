@@ -18,3 +18,45 @@ export const onboardingData = [
     image: iconPathURL.ticket,
   },
 ];
+
+export const genderData = [
+  {
+    label: "Male",
+    value: "Male",
+  },
+  {
+    label: "Female",
+    value: "Female",
+  },
+  {
+    label: "Others",
+    value: "Others",
+  },
+];
+
+export const registerScreenFields = [
+  {
+    placeHolder: strings.firstName,
+    leftIcon: iconPathURL.person,
+  },
+  {
+    placeHolder: strings.middleName,
+    leftIcon: iconPathURL.person,
+  },
+  {
+    placeHolder: strings.gender,
+    rightIcon: iconPathURL.dropdown,
+  },
+  {
+    placeHolder: strings.dob,
+    rightIcon: iconPathURL.calender,
+  },
+  {
+    placeHolder: strings.email,
+    leftIcon: iconPathURL.email,
+  },
+  {
+    placeHolder: strings.mobileNo,
+    leftIcon: iconPathURL.call,
+  },
+];

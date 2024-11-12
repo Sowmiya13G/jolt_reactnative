@@ -9,7 +9,7 @@ import NavigationService from './NavigationService';
 import { SCREENS } from '../constant';
 import ScreenName from './screenNames';
 
-export const AppStack = () => {
+const AppStack = () => {
   const Stack = createNativeStackNavigator();
 
   const ScreensComponentArr = [
@@ -25,23 +25,29 @@ export const AppStack = () => {
       ScreenName: SCREENS.FORGOT_PASSWORD,
       Component: ScreenName.ForgotPasswordScreen,
     },
+    {
+      ScreenName: SCREENS.OTP_SCREEN,
+      Component: ScreenName.OTPScreen,
+    },
+    {
+      ScreenName: SCREENS.REGISTER_SCREEN,
+      Component: ScreenName.RegisterScreen,
+    },
   ];
 
   return (
     <NavigationContainer ref={NavigationService.navigationRef}>
       <Stack.Navigator initialRouteName={SCREENS.ONBOARDING}>
-        {ScreensComponentArr.map(({ScreenName, Component}, index) => {
-          return (
-            <Stack.Screen
-              key={`${ScreenName}_stackScreen`}
-              name={ScreenName}
-              component={Component}
-              options={{headerShown: false}}
-            />
-          );
-        })}
+        {ScreensComponentArr.map(({ScreenName, Component}, index) => (
+          <Stack.Screen
+            key={index}
+            name={ScreenName}
+            component={Component}
+            options={{headerShown: false}}
+          />
+        ))}
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 };
+export default AppStack;

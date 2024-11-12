@@ -82,10 +82,34 @@ const baseStyle = {
 const colors = {
   //black variants
   black: '#000000',
+  secondaryBlack: '#0F0D23',
+  textBlack:"#222222",
+
   white: '#FFFFFF',
   orange: '#FD6905',
-  lightGreen: '#24DD7D',
+  red: '#D92D20',
+
+  // grey variants
   grey: '#DDDDDD',
+  borderLightGrey: '#D1D5DB',
+  ghostWhite: '#F9FAFB',
+  placeHolderColor: '#6C737F',
+  textGrey: '#667085',
+  borderGrey: '#D9D9D9',
+  secondaryGrey: '#333232',
+  placeHolderTextColor: '#697D95',
+  lightGrey: '#6B7280',
+  darkGrey: '#373737',
+  textGrey1: '#7C7C7C',
+  textGreyDark:"#505050",
+
+  // green variants
+  lightGreen: '#24DD7D',
+  green: '#3AB72F',
+  basilGreen: '#8EB43C',
+
+  // blue variants
+  blue: '#0056F4',
 };
 
 export {baseStyle, colors, fontFamily, sizes};

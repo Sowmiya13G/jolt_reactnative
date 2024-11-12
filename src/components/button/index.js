@@ -30,12 +30,13 @@ export default function Button(props) {
     paddingVertical,
     buttonStyle,
     tintColor,
+    textStyle,
   } = props;
 
   return (
     <TouchableOpacity
       style={[
-        styles.blueButton,
+        styles.button,
         {
           flex: flex,
           height: height,
@@ -60,7 +61,11 @@ export default function Button(props) {
       )}
       {Boolean(text) && (
         <>
-          <Text style={[baseStyle.txtStyleOutInterBold(textSize, textColor)]}>
+          <Text
+            style={[
+              baseStyle.txtStyleOutInterMedium(textSize, textColor),
+              textStyle,
+            ]}>
             {text}
           </Text>
           {Boolean(rightIcon) && (

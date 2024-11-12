@@ -1,53 +1,74 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../constant/theme';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
+import {baseStyle, colors} from '../../constant/theme';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
-    justifyContent: 'center',
-    alignItems: 'center',
+  },
+  marginHorizontal: {
+    marginHorizontal: wp('5%'),
   },
   wrapper: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1,
+    alignSelf: 'center',
+  },
+  textAlign: {
+    textAlign: 'center',
   },
   imageStyle: {
-    width: widthPercentageToDP('60%'),
-    height: widthPercentageToDP('60%'),
+    width: wp('65%'),
+    height: wp('65%'),
     resizeMode: 'contain',
+    alignSelf: 'center',
   },
   buttonView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: widthPercentageToDP('5%'),
+    paddingHorizontal: wp('5%'),
   },
   skipButton: {
     backgroundColor: colors.white,
-    borderRadius: widthPercentageToDP('3%'),
-    paddingVertical: widthPercentageToDP('3%'),
-    paddingHorizontal: widthPercentageToDP('5%'),
-    borderWidth: widthPercentageToDP('0.1%'),
-    borderColor: colors.black,
+    borderRadius: wp('3%'),
+    paddingVertical: wp('3%'),
+    paddingHorizontal: wp('5%'),
+    borderWidth: wp('0.1%'),
+    borderColor: colors.textGrey,
+    width: wp('28%'),
+    alignItems: 'center',
   },
   nextButton: {
     backgroundColor: colors.orange,
-    borderRadius: widthPercentageToDP('3%'),
-    paddingVertical: widthPercentageToDP('3%'),
-    paddingHorizontal: widthPercentageToDP('5%'),
+    borderRadius: wp('3%'),
+    paddingVertical: wp('3%'),
+    paddingHorizontal: wp('5%'),
+    width: wp('28%'),
+    alignItems: 'center',
   },
   paginationDots: {
-    width: widthPercentageToDP('8%'),
-    height: widthPercentageToDP('2.5%'),
-    borderRadius: widthPercentageToDP('3%'),
-    marginHorizontal: widthPercentageToDP('2%'),
+    width: wp('8%'),
+    height: wp('2.5%'),
+    borderRadius: wp('3%'),
+    marginHorizontal: wp('2%'),
   },
   paginationWrapper: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    // marginTop: 20,
+  },
+  iconView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logo: {
+    borderColor: colors.green,
+    borderWidth: wp('0.5%'),
+    ...baseStyle.iconStyle(wp('3.7%')),
+    borderRadius: wp('5%'),
+    padding: wp('2%'),
   },
 });
 

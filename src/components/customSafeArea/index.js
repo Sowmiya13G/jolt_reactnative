@@ -1,15 +1,14 @@
 import React from 'react';
-import { ImageBackground, StatusBar, View } from 'react-native';
+import {ImageBackground, StatusBar, View} from 'react-native';
 
 // packages
 import PropTypes from 'prop-types';
 import {
-    SafeAreaProvider,
-    useSafeAreaInsets,
+  SafeAreaProvider,
+  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 //constants
-import { iconpathurl } from '../../constant/iconpath';
-import { colors } from '../../constant/theme';
+import {colors} from '../../constant/theme';
 
 function CustomSafeArea(props) {
   //props
@@ -19,17 +18,15 @@ function CustomSafeArea(props) {
       alignItems: 'center',
       justifyContent: 'center',
     },
-    backgroundImg = iconpathurl.commonImgBackground,
-    backgroundColor = colors.themeColor,
+    backgroundImg,
+    backgroundColor = colors.white,
+    statusBarBGColor = colors.white,
     isCustomFooter,
     footerComp = () => <></>,
   } = props;
-  
+
   //render status bar
-  const CustomStatusBar = ({
-    backgroundColor,
-    barStyle = 'dark-content',
-  }) => {
+  const CustomStatusBar = ({backgroundColor, barStyle = 'dark-content'}) => {
     const insets = useSafeAreaInsets();
 
     return (
@@ -44,14 +41,16 @@ function CustomSafeArea(props) {
   };
   return (
     <SafeAreaProvider>
-      <CustomStatusBar backgroundColor={backgroundColor} />
+      <CustomStatusBar backgroundColor={statusBarBGColor} />
       <ImageBackground
         source={backgroundImg}
         style={{
           backgroundColor: backgroundColor,
           flex: 1,
         }}>
-        <View style={{...style}}>{props.children}</View>
+        <View pointerEvents="auto" style={{...style}}>
+          {props.children}
+        </View>
       </ImageBackground>
       {isCustomFooter && Boolean(footerComp) && footerComp()}
     </SafeAreaProvider>
