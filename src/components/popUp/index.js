@@ -1,18 +1,20 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import { Image, Text, View } from 'react-native';
 
 // navigation
 
 //packages
 import PropTypes from 'prop-types';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 // components
+import Spacer from '../spacer';
 
 // constant
-import {baseStyle, colors, sizes} from '../../constant/theme';
+import { baseStyle, colors, sizes } from '../../constant/theme';
+
+// styles
 import styles from './styles';
-import Spacer from '../spacer';
-import {heightPercentageToDP} from 'react-native-responsive-screen';
 
 const PopUp = props => {
   //props
@@ -32,7 +34,7 @@ const PopUp = props => {
       <Text
         style={[
           baseStyle.txtStyleOutInterRegular(sizes.size2, colors.secondaryGrey),
-          styles.texAlign
+          styles.texAlign,
         ]}>
         {disc}
       </Text>
@@ -41,7 +43,9 @@ const PopUp = props => {
 };
 
 PopUp.propTypes = {
-  route: PropTypes.shape({}),
+  icon: PropTypes.oneOfType([PropTypes.number, PropTypes.object]).isRequired,
+  title: PropTypes.string.isRequired,
+  disc: PropTypes.string.isRequired,
 };
 
 export default PopUp;

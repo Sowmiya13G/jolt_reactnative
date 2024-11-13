@@ -11,15 +11,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignContent: 'center',
   },
-  leftContainer_type2: {
-    // flex: 1,
-    // flexDirection: 'row',
-    // alignItems: 'flex-start',
-  },
+  leftContainer_type2: {},
   titleText: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  titleView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginHorizontal: wp('5%'),
   },
   leftIconStyle: {
     ...baseStyle.iconStyle(wp('1%')),
@@ -42,6 +44,21 @@ const styles = StyleSheet.create({
     backgroundColor: colors.grey,
     justifyContent: 'center',
     alignItems: 'flex-start',
+  },
+  horizontalLine: {
+    height: wp('0.3%'),
+    backgroundColor: colors.lineGrey,
+  },
+  notificationView: {
+    marginRight: wp('3%'),
+    backgroundColor: colors.white,
+    padding: '2%',
+    borderRadius: wp('2%'),
+    ...baseStyle.cardElevationStyle(),
+  },
+  notificationIcon: {
+    ...baseStyle.iconStyle('5%'),
+    resizeMode: 'contain',
   },
 });
 

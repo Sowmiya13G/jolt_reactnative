@@ -6,25 +6,27 @@ import NavigationService from '../../navigation/NavigationService';
 
 //packages
 import PropTypes from 'prop-types';
-
-// components
-import CustomSafeArea from '../../components/customSafeArea';
-import Spacer from '../../components/spacer';
-
-// constant
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
+
+// components
 import Button from '../../components/button';
+import CustomSafeArea from '../../components/customSafeArea';
+import DropDown from '../../components/dropDown';
+import Spacer from '../../components/spacer';
 import TextInputComponent from '../../components/textInput';
+
+// constant
 import {SCREENS} from '../../constant';
 import {iconPathURL} from '../../constant/iconpath';
+import {genderData, registerScreenFields} from '../../constant/staticData';
 import {strings} from '../../constant/strings';
 import {baseStyle, colors, sizes} from '../../constant/theme';
+
+// styles
 import styles from './styles';
-import {genderData, registerScreenFields} from '../../constant/staticData';
-import DropDown from '../../components/dropDown';
 
 const initialData = {
   firstName: '',

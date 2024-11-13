@@ -1,29 +1,29 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {FlatList, Image, Text, View} from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { FlatList, Image, Text, View } from 'react-native';
 
 // packages
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import PropTypes from 'prop-types';
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 // styles
 import styles from './styles';
 
 // navigation
+import NavigationService from '../../navigation/NavigationService';
 
 // components
 import Button from '../../components/button';
 import CustomSafeArea from '../../components/customSafeArea';
+import Header from '../../components/header';
+import PopUp from '../../components/popUp';
 import Spacer from '../../components/spacer';
 
 // constants
-import Header from '../../components/header';
-import PopUp from '../../components/popUp';
-import {iconPathURL} from '../../constant/iconpath';
-import {strings} from '../../constant/strings';
-import {baseStyle, colors, sizes} from '../../constant/theme';
-import NavigationService from '../../navigation/NavigationService';
-import {SCREENS} from '../../constant';
+import { SCREENS } from '../../constant';
+import { iconPathURL } from '../../constant/iconpath';
+import { strings } from '../../constant/strings';
+import { baseStyle, colors, sizes } from '../../constant/theme';
 
 const OTPScreen = props => {
   //route params
@@ -159,7 +159,9 @@ const OTPScreen = props => {
               {strings.didNtGetCode}{' '}
             </Text>
             <Text
-              onPress={() => {}}
+              onPress={() => {
+                NavigationService.navigate(SCREENS.HOME_SCREEN);
+              }}
               style={[
                 baseStyle.txtStyleOutInterMedium(sizes.size2, colors.orange),
               ]}>
@@ -222,7 +224,7 @@ const OTPScreen = props => {
 OTPScreen.propTypes = {
   route: PropTypes.shape({
     params: PropTypes.shape({
-      type: PropTypes.number,
+      type: PropTypes.string,
     }),
   }),
 };

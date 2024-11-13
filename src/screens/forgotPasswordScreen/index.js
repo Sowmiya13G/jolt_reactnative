@@ -1,25 +1,25 @@
-import React, {useState} from 'react';
-import {FlatList, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, Text, View } from 'react-native';
 
 // navigation
 import NavigationService from '../../navigation/NavigationService';
 
 //packages
 import PropTypes from 'prop-types';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 // components
+import Button from '../../components/button';
 import CustomSafeArea from '../../components/customSafeArea';
 import Header from '../../components/header';
 import Spacer from '../../components/spacer';
+import TextInputComponent from '../../components/textInput';
 
 // constant
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import Button from '../../components/button';
-import TextInputComponent from '../../components/textInput';
-import {SCREENS} from '../../constant';
-import {iconPathURL} from '../../constant/iconpath';
-import {strings} from '../../constant/strings';
-import {baseStyle, colors, sizes} from '../../constant/theme';
+import { SCREENS } from '../../constant';
+import { iconPathURL } from '../../constant/iconpath';
+import { strings } from '../../constant/strings';
+import { baseStyle, colors, sizes } from '../../constant/theme';
 import styles from './styles';
 
 const ForgotPasswordScreen = props => {
@@ -141,7 +141,11 @@ const ForgotPasswordScreen = props => {
 };
 
 ForgotPasswordScreen.propTypes = {
-  route: PropTypes.shape({}),
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      type: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default ForgotPasswordScreen;

@@ -1,17 +1,23 @@
 import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 
 //packages
 import PropTypes from 'prop-types';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 
 //styles
 import styles from './styles';
 
 //components
+import Spacer from '../spacer';
 
 //constants
-import { iconPathURL } from '../../constant/iconpath';
-import { baseStyle, colors, sizes } from '../../constant/theme';
+import {iconPathURL} from '../../constant/iconpath';
+import {baseStyle, colors, sizes} from '../../constant/theme';
+
 
 const Header = props => {
   //prop
@@ -29,30 +35,68 @@ const Header = props => {
     notificationScreenBtn,
     handleNotification = () => {},
     tintColor = colors.white,
+    isLeftIcon = true,
+    isHomeHeader = false,
+    isCommonHeader = true,
+    titleData,
+    sessionColor,
   } = props;
 
   return (
     <View style={styles.rootContainer}>
-      <TouchableOpacity
-        onPress={() => {
-          Boolean(goBack) && goBack();
-        }}
-        style={styles.leftIconView}>
-        <Image
-          resizeMode="contain"
-          style={[styles.imageOnboarding, {tintColor: tintColor}]}
-          source={leftIcon1}
-        />
-      </TouchableOpacity>
-      <View style={styles.titleText}>
-        <Text
-          style={[
-            baseStyle.txtStyleOutInterBold(sizes.size3, color),
-            {textAlign: 'center'},
-          ]}>
-          {title}
-        </Text>
-      </View>
+      {Boolean(isLeftIcon) && (
+        <TouchableOpacity
+          onPress={() => {
+            Boolean(goBack) && goBack();
+          }}
+          style={styles.leftIconView}>
+          <Image
+            resizeMode="contain"
+            style={[styles.imageOnboarding, {tintColor: tintColor}]}
+            source={leftIcon1}
+          />
+        </TouchableOpacity>
+      )}
+      {Boolean(isCommonHeader) && (
+        <View style={styles.titleText}>
+          <Text
+            style={[
+              baseStyle.txtStyleOutInterBold(sizes.size3, color),
+              {textAlign: 'center'},
+            ]}>
+            {title}
+          </Text>
+        </View>
+      )}
+      {Boolean(isHomeHeader) && (
+        <View style={{flex: 1}}>
+          <Spacer height={heightPercentageToDP('2%')} />
+          <View style={styles.titleView}>
+            <View>
+              <Spacer height={heightPercentageToDP('1%')} />
+              <Text
+                style={[
+                  baseStyle.txtStyleOutInterRegular(sizes.size2, sessionColor),
+                ]}>
+                {titleData?.session},
+              </Text>
+              <Spacer height={heightPercentageToDP('0.5%')} />
+              <Text
+                style={[baseStyle.txtStyleOutInterSemiBold(sizes.size3, color)]}>
+                {titleData?.user}
+              </Text>
+            </View>
+            <TouchableOpacity style={styles.notificationView}>
+              <Image
+                source={iconPathURL.notification}
+                style={styles.notificationIcon}
+              />
+            </TouchableOpacity>
+          </View>
+          <Spacer height={heightPercentageToDP('1.5%')} />
+          <View style={styles.horizontalLine} />
+        </View>
+      )}
     </View>
   );
 };

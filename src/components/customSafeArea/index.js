@@ -1,5 +1,5 @@
 import React from 'react';
-import {ImageBackground, StatusBar, View} from 'react-native';
+import { ImageBackground, StatusBar, View } from 'react-native';
 
 // packages
 import PropTypes from 'prop-types';
@@ -8,7 +8,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 //constants
-import {colors} from '../../constant/theme';
+import { colors } from '../../constant/theme';
 
 function CustomSafeArea(props) {
   //props

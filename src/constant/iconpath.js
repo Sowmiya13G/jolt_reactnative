@@ -20,6 +20,17 @@ const iconPathURL = {
   tick: require('../assets/images/tick.png'),
   busStatic: require('../assets/images/busStatic.png'),
   success: require('../assets/images/success.png'),
+  home: require('../assets/images/home.png'),
+  wallet: require('../assets/images/wallet.png'),
+  trips: require('../assets/images/trips.png'),
+  arrowSwap: require('../assets/images/arrowSwap.png'),
+  current: require('../assets/images/current.png'),
+  destination: require('../assets/images/destination.png'),
+  notification: require('../assets/images/notification.png'),
+  team: require('../assets/images/team.png'),
+  plus: require('../assets/images/plus.png'),
+  minus: require('../assets/images/minus.png'),
+  search: require('../assets/images/search.png'),
 };
 
 export {iconPathURL};

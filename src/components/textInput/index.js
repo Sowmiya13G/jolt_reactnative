@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-//style
-import styles from './styles';
+// packages
+import PropTypes from 'prop-types';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
+// components
+import Spacer from '../spacer';
 
 //constant
 import { iconpathurl } from '../../constant/iconpath';
 import { strings } from '../../constant/strings';
 import { baseStyle, colors, sizes } from '../../constant/theme';
-import Spacer from '../spacer';
 
-import {
-  heightPercentageToDP as hp
-} from 'react-native-responsive-screen';
+//style
+import styles from './styles';
 
 const TextInputComponent = props => {
   //props
@@ -46,7 +48,7 @@ const TextInputComponent = props => {
     viewType,
     isDisabled = false,
     onTypingEnd,
-    customInputStyle
+    customInputStyle,
   } = props;
 
   const [show, setShow] = useState(secureTextEntry);
@@ -82,7 +84,7 @@ const TextInputComponent = props => {
             baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black),
             styles.textInput,
             {flex: Boolean(icon) ? 0.87 : 1},
-            customInputStyle
+            customInputStyle,
           ]}
           placeholder={placeholder}
           placeholderTextColor={placeHolderTextColor}
@@ -115,5 +117,50 @@ const TextInputComponent = props => {
     </>
   );
 };
+
+TextInputComponent.propTypes = {
+  icon: PropTypes.any,
+  type: PropTypes.string,
+  label: PropTypes.string,
+  error: PropTypes.string,
+  verification: PropTypes.bool,
+  labelColor: PropTypes.string,
+  labelTextSize: PropTypes.string,
+  placeholder: PropTypes.string,
+  placeHolderTextColor: PropTypes.string,
+  defaultValue: PropTypes.string,
+  maxLength: PropTypes.number,
+  keyboardType: PropTypes.string,
+  value: PropTypes.string,
+  onSubmit: PropTypes.func,
+  onChangeText: PropTypes.func,
+  secureTextEntry: PropTypes.bool,
+  editable: PropTypes.bool,
+  CustomStyle: PropTypes.object,
+  textAlignVertical: PropTypes.string,
+  suffix: PropTypes.bool,
+  autoCapitalize: PropTypes.string,
+  errText: PropTypes.string,
+  showErrText: PropTypes.bool,
+  customErrTextStyle: PropTypes.object,
+  CustomStyle1: PropTypes.object,
+  isReq: PropTypes.bool,
+  viewType: PropTypes.string,
+  isDisabled: PropTypes.bool,
+  onTypingEnd: PropTypes.func,
+  customInputStyle: PropTypes.object,
+};
+
+TextInputComponent.defaultProps = {
+  labelColor: colors.secondaryGrey,
+  labelTextSize: '1.8%',
+  placeholder: strings.enterHere,
+  placeHolderTextColor: colors.placeHolderTextColor,
+  secureTextEntry: false,
+  editable: true,
+  suffix: false,
+  isDisabled: false,
+};
+
 
 export default TextInputComponent;

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 //styles
 import styles from './styles';
 //component
 import Spacer from '../spacer';
 //constant
-import {baseStyle, sizes} from '../../constant/theme';
+import { baseStyle, sizes } from '../../constant/theme';
 
 export default function Button(props) {
   //props
@@ -85,10 +85,10 @@ export default function Button(props) {
 }
 
 Button.propTypes = {
-  onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func,
   text: PropTypes.string,
-  icon: PropTypes.shape({uri: PropTypes.string}),
-  rightIcon: PropTypes.shape({uri: PropTypes.string}),
+  icon: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+  rightIcon: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
   spaceBetween: PropTypes.number,
   height: PropTypes.number,
   flex: PropTypes.number,
@@ -102,11 +102,15 @@ Button.propTypes = {
   borderWidth: PropTypes.number,
   borderColor: PropTypes.string,
   paddingVertical: PropTypes.number,
-  buttonStyle: PropTypes.object,
+  buttonStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  textStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   tintColor: PropTypes.string,
 };
 
 Button.defaultProps = {
   textSize: sizes.size2,
   disabled: false,
+  spaceBetween: 0,
+  buttonStyle: {},
+  textStyle: {},
 };

@@ -17,12 +17,12 @@ import Spacer from '../../components/spacer';
 
 // constants
 import { SCREENS } from '../../constant';
+import { iconPathURL } from '../../constant/iconpath';
 import { onboardingData } from '../../constant/staticData';
 import { strings } from '../../constant/strings';
 import { baseStyle, colors, sizes } from '../../constant/theme';
 
 // styles
-import { iconPathURL } from '../../constant/iconpath';
 import styles from './styles';
 
 const OnboardingScreen = props => {
@@ -86,10 +86,10 @@ const OnboardingScreen = props => {
   return (
     <CustomSafeArea style={styles.container}>
       <Spacer height={hp('5%')} />
-      <View  style={[styles.iconView, styles.marginHorizontal]}>
+      <View style={[styles.iconView, styles.marginHorizontal]}>
         <Image source={iconPathURL.logo} style={styles.logo} />
         <Spacer width={wp('3%')} />
-        <View >
+        <View>
           <Text
             style={[baseStyle.txtStyleOutInterBold(sizes.size3, colors.black)]}>
             {strings.joltBus}
@@ -111,8 +111,8 @@ const OnboardingScreen = props => {
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => (
-          <View  style={{width, height: '100%'}}>
-            <View  style={[styles.wrapper, styles.marginHorizontal]}>
+          <View style={{width, height: '100%'}}>
+            <View style={[styles.wrapper, styles.marginHorizontal]}>
               <Spacer height={hp('10%')} />
               <Image source={item.image} style={styles.imageStyle} />
               <Spacer height={hp('3%')} />
@@ -139,7 +139,7 @@ const OnboardingScreen = props => {
         }}
         scrollEventThrottle={16}
       />
-      <View  style={styles.paginationWrapper}>
+      <View style={styles.paginationWrapper}>
         {onboardingData.map((_, index) => {
           const backgroundColor = animation.interpolate({
             inputRange: [index - 1, index, index + 1],
@@ -169,9 +169,12 @@ const OnboardingScreen = props => {
       </View>
 
       <Spacer height={hp('10%')} />
-      <View  style={[styles.buttonView, styles.marginHorizontal]}>
+      <View style={[styles.buttonView, styles.marginHorizontal]}>
         <Button
-          onPress={() => handleCompleteSlider()}
+          onPress={() => {
+            NavigationService.navigate(SCREENS.BOTTOM_TAB_NAV);
+            // handleCompleteSlider();
+          }}
           text={strings.skip}
           textColor={colors.textGreyDark}
           buttonStyle={styles.skipButton}

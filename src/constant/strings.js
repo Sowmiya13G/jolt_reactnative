@@ -59,4 +59,23 @@ const strings = {
   verifiedDisc: 'You will be redirected to the main page in a few moments',
 };
 
-export {strings};
+const tabBar = {
+  home: 'Home',
+  myTrip: 'My Trips',
+  account: 'Account',
+  wallet: 'Wallet',
+};
+
+const dashboard = {
+  name: 'Olivia Rhye',
+  availableDates: 'Available dates',
+  person: 'Person',
+  persons: 'Persons',
+  searchBus: 'Search Bus',
+};
+
+const PLACEHOLDERS = {
+  yourCurrentLocation: 'Your current location',
+  searchForDestination: 'Search for a destination',
+};
+export {strings, dashboard, tabBar, PLACEHOLDERS};

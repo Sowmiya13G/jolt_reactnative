@@ -7,6 +7,7 @@ import NavigationService from './NavigationService';
 
 // constant
 import { SCREENS } from '../constant';
+import { BottomNavigation } from './bottomTabNavigator';
 import ScreenName from './screenNames';
 
 const AppStack = () => {
@@ -32,6 +33,10 @@ const AppStack = () => {
     {
       ScreenName: SCREENS.REGISTER_SCREEN,
       Component: ScreenName.RegisterScreen,
+    },
+    {
+      ScreenName: SCREENS.BOTTOM_TAB_NAV,
+      Component: BottomNavigation,
     },
   ];
 
