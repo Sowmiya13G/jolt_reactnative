@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Animated, TouchableOpacity, View } from 'react-native';
+import React, {useState} from 'react';
+import {Animated, TouchableOpacity, View} from 'react-native';
 
 // packages
 import PropTypes from 'prop-types';
@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 import TextInputComponent from '../textInput';
 
 //constant
-import { iconPathURL } from '../../constant/iconpath';
-import { colors } from '../../constant/theme';
+import {iconPathURL} from '../../constant/iconpath';
+import {colors} from '../../constant/theme';
 
 //style
 import styles from './styles';
@@ -24,9 +24,11 @@ const SearchComponent = props => {
     swapLocation = () => {},
     onChangeFromLocation = () => {},
     onChangeToLocation = () => {},
+    onFocusChange = () => {},
   } = props;
 
   const [rotation, setRotation] = useState(new Animated.Value(0));
+  const [focusedInput, setFocusedInput] = useState(null);
 
   // Interpolate the rotation value
   const rotateInterpolate = rotation.interpolate({
@@ -49,6 +51,11 @@ const SearchComponent = props => {
     swapLocation();
   };
 
+  const handleFocus = inputName => {
+    setFocusedInput(inputName);
+    onFocusChange(inputName);
+  };
+
   return (
     <View style={styles.viewContainer}>
       <TextInputComponent
@@ -59,8 +66,11 @@ const SearchComponent = props => {
         placeHolderTextColor={colors.placeHolderColor}
         icon={iconPathURL.current}
         onChangeText={onChangeFromLocation}
+        onFocus={() => handleFocus('from')}
+        isFocused={focusedInput === 'from'}
       />
       <View style={styles.lineView}>
+        <View style={styles.verticalLine} />
         <View style={styles.horizontalLine} />
         <TouchableOpacity style={styles.arrowView} onPress={handleSwapLocation}>
           <Animated.Image
@@ -80,6 +90,8 @@ const SearchComponent = props => {
         placeHolderTextColor={colors.placeHolderColor}
         icon={iconPathURL.destination}
         onChangeText={onChangeToLocation}
+        onFocus={() => handleFocus('to')}
+        isFocused={focusedInput === 'to'}
       />
     </View>
   );
@@ -93,7 +105,7 @@ SearchComponent.propTypes = {
   swapLocation: PropTypes.func,
   onChangeFromLocation: PropTypes.func,
   onChangeToLocation: PropTypes.func,
+  onFocusChange: PropTypes.func, 
 };
-
 
 export default SearchComponent;

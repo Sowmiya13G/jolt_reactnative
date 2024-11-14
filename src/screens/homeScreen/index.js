@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {FlatList, Text, View} from 'react-native';
 
 // navigation
 
 //packages
 import PropTypes from 'prop-types';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 // components
 import Button from '../../components/button';
@@ -17,15 +17,17 @@ import SearchComponent from '../../components/searchComponent';
 import Spacer from '../../components/spacer';
 
 // constant
-import { iconPathURL } from '../../constant/iconpath';
-import { dashboard, PLACEHOLDERS, strings } from '../../constant/strings';
-import { baseStyle, colors, sizes } from '../../constant/theme';
+import {iconPathURL} from '../../constant/iconpath';
+import {dashboard, PLACEHOLDERS, strings} from '../../constant/strings';
+import {baseStyle, colors, sizes} from '../../constant/theme';
 
 // utils
 import styles from './styles';
 
 // styles
-import { getNextDates, getSessionText } from '../../utils/helperFunctions';
+import {getNextDates, getSessionText} from '../../utils/helperFunctions';
+import NavigationService from '../../navigation/NavigationService';
+import {SCREENS} from '../../constant';
 
 const HomeScreen = props => {
   //props
@@ -41,11 +43,6 @@ const HomeScreen = props => {
     session: getSessionText(),
     user: dashboard.name,
   };
-
-  useEffect(() => {
-    // Example usage
-    console.log(getNextDates());
-  }, []);
 
   const swapLocation = () => {
     setData(prevData => ({
@@ -95,10 +92,12 @@ const HomeScreen = props => {
           {dashboard.availableDates}
         </Text>
         <Spacer height={hp('2%')} />
-        <RenderDates dates={getNextDates()} />
+        <RenderDates dates={getNextDates()} isDates={true} />
         <Spacer height={hp('5%')} />
         <Button
-          onPress={() => {}}
+          onPress={() => {
+            NavigationService.navigate(SCREENS.SEARCH_SCREEN);
+          }}
           text={dashboard.searchBus}
           buttonStyle={styles.button}
           textStyle={styles.textStyle}

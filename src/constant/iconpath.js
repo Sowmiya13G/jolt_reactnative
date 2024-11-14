@@ -31,6 +31,8 @@ const iconPathURL = {
   plus: require('../assets/images/plus.png'),
   minus: require('../assets/images/minus.png'),
   search: require('../assets/images/search.png'),
+  arrow: require('../assets/images/arrow.png'),
+  location: require('../assets/images/location.png'),
 };
 
 export {iconPathURL};

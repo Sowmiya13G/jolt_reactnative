@@ -49,6 +49,7 @@ const TextInputComponent = props => {
     isDisabled = false,
     onTypingEnd,
     customInputStyle,
+    onFocus,
   } = props;
 
   const [show, setShow] = useState(secureTextEntry);
@@ -99,6 +100,7 @@ const TextInputComponent = props => {
           secureTextEntry={show}
           editable={editable}
           autoCapitalize={autoCapitalize}
+          onFocus={onFocus}
         />
         {Boolean(icon) && suffix && (
           <Image source={icon} style={styles.rightIcon} />

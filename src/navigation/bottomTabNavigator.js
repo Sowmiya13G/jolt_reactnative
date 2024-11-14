@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Text } from 'react-native';
+import {Image, Platform, StyleSheet, Text} from 'react-native';
 
 // packages
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -14,11 +14,12 @@ import {
 } from 'react-native-responsive-screen';
 
 // constants
-import { SCREENS } from '../constant';
-import { iconPathURL } from '../constant/iconpath';
-import { tabBar } from '../constant/strings';
-import { baseStyle, colors, sizes } from '../constant/theme';
+import {SCREENS} from '../constant';
+import {iconPathURL} from '../constant/iconpath';
+import {tabBar} from '../constant/strings';
+import {baseStyle, colors, sizes} from '../constant/theme';
 import screenNames from './screenNames';
+import DashboardStack from './bottomTabStacks/homeStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,7 +29,7 @@ export function BottomNavigation() {
     {
       id: 1,
       name: SCREENS?.HOME_SCREEN,
-      component: screenNames?.HomeScreen,
+      component: DashboardStack,
       title: tabBar?.home,
       icon: iconPathURL?.home,
     },

@@ -72,6 +72,9 @@ const dashboard = {
   person: 'Person',
   persons: 'Persons',
   searchBus: 'Search Bus',
+  recentTrips: 'Recent Trips',
+  searchRoute: 'Search Your Route',
+  city:"City"
 };
 
 const PLACEHOLDERS = {

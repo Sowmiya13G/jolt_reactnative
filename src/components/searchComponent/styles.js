@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
   lineView: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: wp('10%'),
+    marginHorizontal: wp('7%'),
     height: hp('3%'),
   },
   horizontalLine: {
     height: wp('0.3%'),
-    width: '90%',
+    width: '80%',
     backgroundColor: colors.boldBorderGrey,
     marginRight: wp('1%'),
   },
@@ -39,6 +39,14 @@ const styles = StyleSheet.create({
     padding: '4%',
     backgroundColor: colors.paleGreen,
     borderRadius: wp('6%'),
+  },
+  verticalLine: {
+    width: 1,
+    height: '100%',
+    borderStyle: 'dashed',
+    borderWidth: 1,
+    borderColor: colors.borderGrey,
+    marginRight: wp('2%'),
   },
 });
 

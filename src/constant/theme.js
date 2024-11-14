@@ -88,13 +88,14 @@ const colors = {
 
   white: '#FFFFFF',
   lightWhite:"#F9FAFB",
+  ghostWhite: '#F9FAFB',
+  
   orange: '#FD6905',
   red: '#D92D20',
 
   // grey variants
   grey: '#DDDDDD',
   borderLightGrey: '#D1D5DB',
-  ghostWhite: '#F9FAFB',
   placeHolderColor: '#6C737F',
   textGrey: '#667085',
   borderGrey: '#D9D9D9',
@@ -106,6 +107,7 @@ const colors = {
   textGreyDark:"#505050",
   lineGrey:"#EDEEF1",
   boldBorderGrey:"#D0D5DD",
+  adGrey:"#ABABAB",
 
   // green variants
   lightGreen: '#24DD7D',

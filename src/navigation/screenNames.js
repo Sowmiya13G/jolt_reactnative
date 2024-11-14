@@ -6,6 +6,7 @@ import MyTripScreen from '../screens/myTrip';
 import OnboardingScreen from '../screens/onboardingScreen';
 import OTPScreen from '../screens/otpScreen';
 import RegisterScreen from '../screens/registerScreen';
+import SearchScreen from '../screens/searchScreen';
 import WalletScreen from '../screens/wallet';
 
 const screens = {
@@ -17,7 +18,8 @@ const screens = {
   HomeScreen,
   MyTripScreen,
   WalletScreen,
-  AccountScreen
+  AccountScreen,
+  SearchScreen
 };
 
 export default screens;

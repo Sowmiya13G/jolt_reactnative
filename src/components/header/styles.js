@@ -32,14 +32,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   imageOnboarding: {
-    width: wp('5.5%'),
-    height: wp('5.5%'),
+    width: wp('4.5%'),
+    height: wp('4.5%'),
     justifyContent: 'center',
     alignSelf: 'center',
   },
   leftIconView: {
     ...baseStyle.iconStyle(wp('1%')),
-    padding: wp('5%'),
+    padding: wp('4%'),
     borderRadius: wp('5%'),
     backgroundColor: colors.grey,
     justifyContent: 'center',

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {baseStyle, colors} from '../../constant/theme';
+import {baseStyle, colors, sizes} from '../../constant/theme';
 
 const styles = StyleSheet.create({
   view: isSelected => ({
@@ -13,12 +13,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: wp('0.1%'),
+    marginBottom: wp('2.5%'),
   }),
   icon: isSelected => ({
-    ...baseStyle.iconStyle('4.5%'),
+    ...baseStyle.iconStyle('2.5%'),
     resizeMode: 'contain',
     tintColor: isSelected ? colors.white : colors.black,
   }),
+  arrowIcon: isSelected => ({
+    ...baseStyle.iconStyle('4%'),
+    resizeMode: 'contain',
+    tintColor: isSelected ? colors.white : colors.black,
+  }),
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    width: '85%',
+    borderRadius: wp('6%'),
+  },
 });
 
 export default styles;
