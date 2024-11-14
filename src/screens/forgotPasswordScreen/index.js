@@ -20,6 +20,8 @@ import { SCREENS } from '../../constant';
 import { iconPathURL } from '../../constant/iconpath';
 import { strings } from '../../constant/strings';
 import { baseStyle, colors, sizes } from '../../constant/theme';
+
+// styles
 import styles from './styles';
 
 const ForgotPasswordScreen = props => {

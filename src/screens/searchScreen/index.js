@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   FlatList,
   Image,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 // navigation
+import NavigationService from '../../navigation/NavigationService';
 
 //packages
 import PropTypes from 'prop-types';
@@ -25,25 +26,25 @@ import SearchComponent from '../../components/searchComponent';
 import Spacer from '../../components/spacer';
 
 // constant
-import {dashboard, PLACEHOLDERS} from '../../constant/strings';
-import {baseStyle, colors, sizes} from '../../constant/theme';
-
-// utils
-import NavigationService from '../../navigation/NavigationService';
-import styles from './styles';
-import {iconPathURL} from '../../constant/iconpath';
+import { iconPathURL } from '../../constant/iconpath';
+import { dashboard, PLACEHOLDERS } from '../../constant/strings';
+import { baseStyle, colors, sizes } from '../../constant/theme';
 
 // styles
+import styles from './styles';
+
 
 const SearchScreen = props => {
   //props
 
+  // local states
   const [data, setData] = useState({
     fromLocation: '',
     toLocation: '',
   });
   const [focusedInput, setFocusedInput] = useState(null);
 
+  // data
   const trips = [
     {id: 1, from: 'Bangalore', to: 'Chennai'},
     {id: 2, from: 'Bangalore', to: 'Coimbatore'},
@@ -58,6 +59,10 @@ const SearchScreen = props => {
     {id: 4, city: 'Mumbai'},
   ];
 
+  // use effects
+
+  // ------------------ FUNCTIONALITIES ----------------------
+
   const swapLocation = () => {
     setData(prevData => ({
       fromLocation: prevData.toLocation,
@@ -71,7 +76,6 @@ const SearchScreen = props => {
       fromLocation: value,
     }));
   };
-
 
   const onChangeToLocation = value => {
     setData(prevData => ({
@@ -92,6 +96,15 @@ const SearchScreen = props => {
     }
     setFocusedInput(null);
   };
+
+  const handleTripSelect = (from, to) => {
+    setData({
+      fromLocation: from,
+      toLocation: to,
+    });
+  };
+
+  // ------------------ RENDER UI ----------------------
 
   const renderCityList = ({item}) => {
     return (
@@ -154,7 +167,12 @@ const SearchScreen = props => {
               {dashboard.recentTrips}
             </Text>
             <Spacer height={hp('2%')} />
-            <RenderDates data={trips} isTrips={true} />
+            <RenderDates
+              data={trips}
+              isTrips={true}
+              isDates={false}
+              onTripSelect={handleTripSelect}
+            />
           </>
         )}
       </View>
@@ -173,12 +191,6 @@ const SearchScreen = props => {
       <TouchableWithoutFeedback onPress={() => setFocusedInput(null)}>
         {renderBody()}
       </TouchableWithoutFeedback>
-      {/* <FlatList
-        data={['SEARCH_SCREEN']}
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={renderBody}
-      /> */}
     </CustomSafeArea>
   );
 };

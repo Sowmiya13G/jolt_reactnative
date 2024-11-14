@@ -1,8 +1,6 @@
-import { StyleSheet } from 'react-native';
-import {
-  widthPercentageToDP as wp
-} from 'react-native-responsive-screen';
-import { baseStyle, colors, sizes } from '../../constant/theme';
+import {StyleSheet} from 'react-native';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {baseStyle, colors, sizes} from '../../constant/theme';
 
 const styles = StyleSheet.create({
   markedDatesStyles: {
@@ -26,20 +24,15 @@ const styles = StyleSheet.create({
   calendarThemeStyles: {
     todayTextColor: colors.black,
     dayTextColor: colors.black,
-    textDisabledColor: '#d9e1e8',
+    textDisabledColor: colors.black,
     arrowColor: colors.black,
-    // dotColor: colors.red,
-    selectedDotColor: colors.white,
     monthTextColor: colors.black,
     textDayFontWeight: '300',
     textMonthFontWeight: 'bold',
-    textDayHeaderFontWeight: '300',
+    textDayHeaderFontWeight: '400',
     textDayFontSize: sizes.size2,
     textMonthFontSize: sizes.size2,
-    textDayHeaderFontSize: sizes.size3,
-    width: '100%',
-    padding: '3%',
-    margin: '3%',
+    textDayHeaderFontSize: sizes.size2,
   },
   modalOverlay: {
     flex: 1,
@@ -48,11 +41,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
-    width: '85%',
+    width: '87%',
     paddingVertical: wp('2%'),
     backgroundColor: colors.white,
     alignItems: 'center',
-    borderRadius: wp('5%'),
+    borderRadius: wp('8%'),
+    paddingHorizontal:"2.5%"
   },
   horizontalLine: {
     height: wp('0.4%'),
@@ -62,13 +56,6 @@ const styles = StyleSheet.create({
   },
   date: {
     alignSelf: 'flex-start',
-    paddingHorizontal: wp('10%'),
-  },
-  headerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '75%',
     paddingHorizontal: wp('4%'),
   },
   arrowContainer: {
@@ -76,16 +63,44 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: wp('10%'),
   },
-  arrowText: {
-    fontSize: sizes.size3,
-    fontWeight: 'bold',
-    color: colors.black,
-  },
   leftArrow: {
-    tintColor: colors.black,
+    ...baseStyle.iconStyle('3%'),
   },
   rightArrow: {
-    tintColor: colors.black,
+    ...baseStyle.iconStyle('3%'),
+  },
+  customHeaderContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: wp('4%'),
+    width: '100%',
+  },
+  arrowsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  okBtn: {
+    backgroundColor: colors.orange,
+    borderRadius: wp('3%'),
+    paddingVertical: wp('2%'),
+    paddingHorizontal: wp('4%'),
+  },
+  cancelBtn: {
+    backgroundColor: colors.white,
+    borderRadius: wp('3%'),
+    paddingVertical: wp('2%'),
+    paddingHorizontal: wp('4%'),
+    borderWidth: wp('0.1%'),
+    borderColor: colors.black,
+  },
+  btnContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-end',
+    marginHorizontal: wp('5%'),
+    gap: wp('5%'),
+    marginVertical: wp('4%'),
   },
 });
 

@@ -160,7 +160,7 @@ const OTPScreen = props => {
             </Text>
             <Text
               onPress={() => {
-                NavigationService.navigate(SCREENS.HOME_SCREEN);
+                NavigationService.navigate(SCREENS.BOTTOM_TAB_NAV);
               }}
               style={[
                 baseStyle.txtStyleOutInterMedium(sizes.size2, colors.orange),

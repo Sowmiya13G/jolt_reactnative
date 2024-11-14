@@ -74,7 +74,9 @@ const dashboard = {
   searchBus: 'Search Bus',
   recentTrips: 'Recent Trips',
   searchRoute: 'Search Your Route',
-  city:"City"
+  city:"City",
+  ok:"Ok",
+  cancel:"Cancel"
 };
 
 const PLACEHOLDERS = {

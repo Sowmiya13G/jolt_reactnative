@@ -7,8 +7,8 @@ import NavigationService from './NavigationService';
 
 // constant
 import { SCREENS } from '../constant';
-import { BottomNavigation } from './bottomTabNavigator';
 import ScreenName from './screenNames';
+import BottomNavigation from './bottomTabNavigator';
 
 const AppStack = () => {
   const Stack = createNativeStackNavigator();
@@ -43,9 +43,9 @@ const AppStack = () => {
   return (
     <NavigationContainer ref={NavigationService.navigationRef}>
       <Stack.Navigator initialRouteName={SCREENS.ONBOARDING}>
-        {ScreensComponentArr.map(({ScreenName, Component}, index) => (
+        {ScreensComponentArr.map(({ScreenName, Component}) => (
           <Stack.Screen
-            key={index}
+            key={ScreenName}
             name={ScreenName}
             component={Component}
             options={{headerShown: false}}

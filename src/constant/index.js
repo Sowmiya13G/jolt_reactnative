@@ -11,7 +11,7 @@ const SCREENS = {
 
   // bottom tabs
   HOME_SCREEN: 'HomeScreen',
-  DASHBOARD_HOME: 'HomeScreen',
+  DASHBOARD: 'Dashboard',
   MY_TRIP: 'MyTripScreen',
   ACCOUNT_SCREEN: 'AccountScreen',
   WALLET_SCREEN: 'WalletScreen',

@@ -18,17 +18,17 @@ import {SCREENS} from '../constant';
 import {iconPathURL} from '../constant/iconpath';
 import {tabBar} from '../constant/strings';
 import {baseStyle, colors, sizes} from '../constant/theme';
-import screenNames from './screenNames';
+import ScreenName from './screenNames';
 import DashboardStack from './bottomTabStacks/homeStack';
 
 const Tab = createBottomTabNavigator();
 
-export function BottomNavigation() {
+const BottomNavigation = () => {
   //screens
   const screenItem = [
     {
       id: 1,
-      name: SCREENS?.HOME_SCREEN,
+      name: SCREENS.DASHBOARD,
       component: DashboardStack,
       title: tabBar?.home,
       icon: iconPathURL?.home,
@@ -36,21 +36,21 @@ export function BottomNavigation() {
     {
       id: 2,
       name: SCREENS?.MY_TRIP,
-      component: screenNames?.MyTripScreen,
+      component: ScreenName?.MyTripScreen,
       title: tabBar?.myTrip,
       icon: iconPathURL?.trips,
     },
     {
       id: 3,
       name: SCREENS?.ACCOUNT_SCREEN,
-      component: screenNames?.AccountScreen,
+      component: ScreenName?.AccountScreen,
       title: tabBar?.account,
       icon: iconPathURL?.person,
     },
     {
       id: 4,
       name: SCREENS?.WALLET_SCREEN,
-      component: screenNames?.WalletScreen,
+      component: ScreenName?.WalletScreen,
       title: tabBar?.wallet,
       icon: iconPathURL?.wallet,
     },
@@ -65,7 +65,8 @@ export function BottomNavigation() {
       {screenItem?.map((tab, idx) => (
         <Tab.Screen
           key={idx}
-          name={tab.name}
+          name={tab?.name}
+          component={tab?.component} 
           options={{
             tabBarIcon: ({focused}) => (
               <AnimatedIcon icon={tab.icon} focused={focused} />
@@ -73,13 +74,12 @@ export function BottomNavigation() {
             tabBarLabel: ({focused}) => (
               <Text style={styles.tabBarLabelStyle(focused)}>{tab.title}</Text>
             ),
-          }}>
-          {() => <tab.component />}
-        </Tab.Screen>
+          }}
+        />
       ))}
     </Tab.Navigator>
   );
-}
+};
 
 const AnimatedIcon = ({icon, focused}) => {
   const borderWidth = useSharedValue(focused ? 3 : 0);

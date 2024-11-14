@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {FlatList, Text, View} from 'react-native';
 
 // navigation
+import NavigationService from '../../navigation/NavigationService';
 
 //packages
 import PropTypes from 'prop-types';
@@ -17,27 +18,30 @@ import SearchComponent from '../../components/searchComponent';
 import Spacer from '../../components/spacer';
 
 // constant
+import {SCREENS} from '../../constant';
 import {iconPathURL} from '../../constant/iconpath';
 import {dashboard, PLACEHOLDERS, strings} from '../../constant/strings';
 import {baseStyle, colors, sizes} from '../../constant/theme';
 
 // utils
-import styles from './styles';
+import {getNextDates, getSessionText} from '../../utils/helperFunctions';
 
 // styles
-import {getNextDates, getSessionText} from '../../utils/helperFunctions';
-import NavigationService from '../../navigation/NavigationService';
-import {SCREENS} from '../../constant';
+import styles from './styles';
 
 const HomeScreen = props => {
   //props
 
+  // local states
   const [data, setData] = useState({
     fromLocation: '',
     toLocation: '',
   });
-
   const [count, setCount] = useState(0);
+
+  // use effects
+
+  // ------------------ FUNCTIONALITIES ----------------------
 
   const headerData = {
     session: getSessionText(),
@@ -51,7 +55,6 @@ const HomeScreen = props => {
     }));
   };
 
-  // Update fromLocation
   const onChangeFromLocation = value => {
     setData(prevData => ({
       ...prevData,
@@ -59,13 +62,14 @@ const HomeScreen = props => {
     }));
   };
 
-  // Update toLocation
   const onChangeToLocation = value => {
     setData(prevData => ({
       ...prevData,
       toLocation: value,
     }));
   };
+
+  // ------------------ RENDER UI ----------------------
 
   const renderBody = () => {
     return (
@@ -92,7 +96,7 @@ const HomeScreen = props => {
           {dashboard.availableDates}
         </Text>
         <Spacer height={hp('2%')} />
-        <RenderDates dates={getNextDates()} isDates={true} />
+        <RenderDates data={getNextDates()} isDates={true} />
         <Spacer height={hp('5%')} />
         <Button
           onPress={() => {

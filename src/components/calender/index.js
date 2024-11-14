@@ -1,14 +1,24 @@
 import React, {useState} from 'react';
-import {Modal, Text, View} from 'react-native';
+import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
 
 // Packages
 import PropTypes from 'prop-types';
 import {Calendar} from 'react-native-calendars';
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {strings} from '../../constant/strings';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
+
+// constants
+import {iconPathURL} from '../../constant/iconpath';
+import {dashboard} from '../../constant/strings';
 import {baseStyle, colors, sizes} from '../../constant/theme';
+
+// components
 import Button from '../button';
 import Spacer from '../spacer';
+
+// styles
 import styles from './styles';
 
 const CalenderComponent = ({
@@ -29,6 +39,46 @@ const CalenderComponent = ({
   };
 
   const today = getTodayDate();
+
+  const renderCustomHeader = date => {
+    const currentMonthLabel = new Date(currentMonth).toLocaleDateString(
+      'en-US',
+      {
+        month: 'long',
+        year: 'numeric',
+      },
+    );
+
+    return (
+      <View style={styles.customHeaderContainer}>
+        <Text
+          style={[baseStyle.txtStyleOutInterBold(sizes.size3, colors.midGrey)]}>
+          {currentMonthLabel}
+        </Text>
+        <View style={styles.arrowsContainer}>
+          <TouchableOpacity
+            onPress={() => {
+              const prevMonth = new Date(currentMonth);
+              prevMonth.setMonth(prevMonth.getMonth() - 1);
+              const updatedMonth = prevMonth.toISOString().split('T')[0];
+              setCurrentMonth(updatedMonth);
+            }}>
+            <Image source={iconPathURL.previous} style={styles.leftArrow} />
+          </TouchableOpacity>
+          <Spacer width={widthPercentageToDP('5%')} />
+
+          <TouchableOpacity
+            onPress={() => {
+              const nextMonth = new Date(currentMonth);
+              nextMonth.setMonth(nextMonth.getMonth() + 1);
+              setCurrentMonth(nextMonth.toISOString().split('T')[0]);
+            }}>
+            <Image source={iconPathURL.next} style={styles.rightArrow} />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  };
 
   return (
     <Modal
@@ -58,53 +108,67 @@ const CalenderComponent = ({
           </Text>
           <Spacer height={hp('2%')} />
           <View style={styles.horizontalLine} />
-          <Spacer height={hp('2%')} />
+          <Spacer height={hp('1%')} />
           <Calendar
+            key={currentMonth}
             current={currentMonth}
             onDayPress={handleDayPress}
-            firstDay={1}
+            markingType={'custom'}
+            dayNamesShort={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
+            theme={styles.calendarThemeStyles}
+            minDate={today}
+            renderHeader={() => renderCustomHeader(date)}
+            hideArrows={true}
             markedDates={{
               [today]: {
                 selected: true,
-                selectedColor: colors.borderGrey,
+                customStyles: {
+                  container: {
+                    borderColor: colors.green,
+                    borderRadius: 5,
+                    backgroundColor: colors.transparent,
+                    borderWidth: 1,
+                  },
+                  text: {
+                    color: colors.black,
+                  },
+                },
               },
               [date]: {
                 selected: true,
-                selectedColor: colors.green,
                 customStyles: {
+                  container: {
+                    backgroundColor: colors.green,
+                    borderRadius: 5,
+                  },
                   text: {
                     color: colors.white,
-                    fontWeight: 'bold',
                   },
                 },
               },
             }}
-            theme={styles.calendarThemeStyles}
-            minDate={today}
-            onMonthChange={month => setCurrentMonth(month.dateString)}
           />
           <View style={styles.horizontalLine} />
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <View style={{width: '48%', backgroundColor: 'red'}}>
-              <Button
-                onPress={() => {}}
-                text={strings.call}
-                textColor={colors.black}
-                buttonStyle={[styles.mobNoBtn, {width: '48%'}]}
-                textStyle={baseStyle.txtStyleOutInterRegular(
-                  sizes.size2,
-                  colors.black,
-                )}
-              />
-            </View>
+
+          <View style={styles.btnContainer}>
             <Button
-              onPress={() => {}}
-              text={strings.call}
+              onPress={() => setShowCalenderModal(false)}
+              text={dashboard.cancel}
               textColor={colors.black}
-              buttonStyle={[styles.mobNoBtn, {width: '48%'}]}
+              buttonStyle={styles.cancelBtn}
               textStyle={baseStyle.txtStyleOutInterRegular(
                 sizes.size2,
                 colors.black,
+              )}
+            />
+            <Button
+              onPress={() => {}}
+              text={dashboard.ok}
+              textColor={colors.black}
+              buttonStyle={styles.okBtn}
+              textStyle={baseStyle.txtStyleOutInterMedium(
+                sizes.size2,
+                colors.white,
               )}
             />
           </View>

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { Animated, Dimensions, FlatList, Image, Text, View } from 'react-native';
+import React, {useRef, useState} from 'react';
+import {Animated, Dimensions, FlatList, Image, Text, View} from 'react-native';
 
 //packages
 import PropTypes from 'prop-types';
@@ -16,16 +16,16 @@ import CustomSafeArea from '../../components/customSafeArea';
 import Spacer from '../../components/spacer';
 
 // constants
-import { SCREENS } from '../../constant';
-import { iconPathURL } from '../../constant/iconpath';
-import { onboardingData } from '../../constant/staticData';
-import { strings } from '../../constant/strings';
-import { baseStyle, colors, sizes } from '../../constant/theme';
+import {SCREENS} from '../../constant';
+import {iconPathURL} from '../../constant/iconpath';
+import {onboardingData} from '../../constant/staticData';
+import {strings} from '../../constant/strings';
+import {baseStyle, colors, sizes} from '../../constant/theme';
 
 // styles
 import styles from './styles';
 
-const OnboardingScreen = props => {
+ const OnboardingScreen = props => {
   //props
   const {} = props;
 

@@ -33,6 +33,8 @@ const iconPathURL = {
   search: require('../assets/images/search.png'),
   arrow: require('../assets/images/arrow.png'),
   location: require('../assets/images/location.png'),
+  next: require('../assets/images/next.png'),
+  previous: require('../assets/images/previous.png'),
 };
 
 export {iconPathURL};

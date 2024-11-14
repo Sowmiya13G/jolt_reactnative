@@ -29,7 +29,7 @@ const AccountScreen = props => {
         }}
       />
       <FlatList
-        data={['MY_TRIP']}
+        data={['MY_ACCOUNT']}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
         renderItem={renderBody}

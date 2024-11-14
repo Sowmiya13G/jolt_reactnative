@@ -16,12 +16,12 @@ import {baseStyle, colors, sizes} from '../../constant/theme';
 // styles
 import styles from './styles';
 
-const RenderDates = ({data, isDates, isTrips}) => {
+const RenderDates = ({data, isDates = true, isTrips = false, onTripSelect}) => {
+  const [tripsData, setTripsData] = useState(data);
   const [selectedDate, setSelectedDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [modalDate, setModalDate] = useState(null);
 
-  // Handle selecting a date from the calendar
   const handleCalendarSelect = selectedDate => {
     setModalDate(selectedDate);
     setShowCalendar(false);
@@ -30,11 +30,20 @@ const RenderDates = ({data, isDates, isTrips}) => {
 
   const handleSelect = item => {
     setSelectedDate(item);
+    if (isTrips && onTripSelect) {
+      onTripSelect(item?.from, item?.to);
+    }
+  };
+
+  const handleRemoveTrip = itemToRemove => {
+    setTripsData(prevData =>
+      prevData?.filter(item => item?.id !== itemToRemove?.id),
+    );
   };
 
   const renderItem = ({item}) => {
-    const isSelected = selectedDate?.date === item.date;
-    const isLastItem = data.length - 1 === item.index;
+    const isSelected = selectedDate?.date === item?.date;
+    const isLastItem = data?.length - 1 === item?.index;
     return (
       <TouchableOpacity
         onPress={() => handleSelect(item)}
@@ -44,7 +53,7 @@ const RenderDates = ({data, isDates, isTrips}) => {
             <TouchableOpacity onPress={() => setShowCalendar(true)}>
               <Image
                 source={iconPathURL.calender}
-                style={styles.icon(isSelected)}
+                style={styles.calenderIcon(isSelected)}
               />
             </TouchableOpacity>
             <Spacer width={widthPercentageToDP('1%')} />
@@ -57,14 +66,14 @@ const RenderDates = ({data, isDates, isTrips}) => {
               isSelected ? colors.white : colors.textBlack,
             ),
           ]}>
-          {item.label}
+          {item?.label}
         </Text>
       </TouchableOpacity>
     );
   };
 
   const renderTrips = ({item}) => {
-    const isSelected = selectedDate?.id === item.id;
+    const isSelected = selectedDate?.id === item?.id;
     return (
       <TouchableOpacity
         onPress={() => handleSelect(item)}
@@ -76,7 +85,7 @@ const RenderDates = ({data, isDates, isTrips}) => {
               isSelected ? colors.white : colors.textBlack,
             ),
           ]}>
-          {item.from}
+          {item?.from}
         </Text>
         <Spacer width={widthPercentageToDP('1%')} />
         <Image
@@ -91,10 +100,12 @@ const RenderDates = ({data, isDates, isTrips}) => {
               isSelected ? colors.white : colors.textBlack,
             ),
           ]}>
-          {item.to}
+          {item?.to}
         </Text>
         <Spacer width={widthPercentageToDP('1%')} />
-        <Image source={iconPathURL.cancel} style={styles.icon(isSelected)} />
+        <TouchableOpacity onPress={() => handleRemoveTrip(item)}>
+          <Image source={iconPathURL.cancel} style={styles.icon(isSelected)} />
+        </TouchableOpacity>
       </TouchableOpacity>
     );
   };
@@ -107,15 +118,18 @@ const RenderDates = ({data, isDates, isTrips}) => {
             ? data?.map((item, index) => ({
                 ...item,
                 date:
-                  index === data.length - 1
-                    ? modalDate || item.date
-                    : item.date,
+                  index === data?.length - 1
+                    ? modalDate || item?.date
+                    : item?.date,
               }))
-            : data
+            : tripsData
         }
         renderItem={isDates ? renderItem : renderTrips}
         keyExtractor={item =>
-          item.id?.toString() || item.date || item.label || `${Math.random()}`
+          item?.id?.toString() ||
+          item?.date ||
+          `${item?.date}-${item?.index}` ||
+          `${Math?.random()}`
         }
         horizontal={!isTrips}
         numColumns={isTrips ? 2 : 1}

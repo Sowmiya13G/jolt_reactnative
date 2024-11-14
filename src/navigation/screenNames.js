@@ -9,7 +9,8 @@ import RegisterScreen from '../screens/registerScreen';
 import SearchScreen from '../screens/searchScreen';
 import WalletScreen from '../screens/wallet';
 
-const screens = {
+
+export default {
   OnboardingScreen,
   LoginScreen,
   ForgotPasswordScreen,
@@ -19,7 +20,5 @@ const screens = {
   MyTripScreen,
   WalletScreen,
   AccountScreen,
-  SearchScreen
+  SearchScreen,
 };
-
-export default screens;

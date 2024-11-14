@@ -83,13 +83,13 @@ const colors = {
   //black variants
   black: '#000000',
   secondaryBlack: '#0F0D23',
-  textBlack:"#222222",
-  titleBlack:"#101828",
+  textBlack: '#222222',
+  titleBlack: '#101828',
 
   white: '#FFFFFF',
-  lightWhite:"#F9FAFB",
+  lightWhite: '#F9FAFB',
   ghostWhite: '#F9FAFB',
-  
+
   orange: '#FD6905',
   red: '#D92D20',
 
@@ -104,22 +104,24 @@ const colors = {
   lightGrey: '#6B7280',
   darkGrey: '#373737',
   textGrey1: '#7C7C7C',
-  textGreyDark:"#505050",
-  lineGrey:"#EDEEF1",
-  boldBorderGrey:"#D0D5DD",
-  adGrey:"#ABABAB",
+  textGreyDark: '#505050',
+  lineGrey: '#EDEEF1',
+  boldBorderGrey: '#D0D5DD',
+  adGrey: '#ABABAB',
+  midGrey: '#555555',
+  mid1Grey:"#868685",
 
   // green variants
   lightGreen: '#24DD7D',
   green: '#3AB72F',
   basilGreen: '#8EB43C',
-  paleGreen:"#CDEED6",
-  pastelGreen:"#20463C",
+  paleGreen: '#CDEED6',
+  pastelGreen: '#20463C',
 
   // blue variants
   blue: '#0056F4',
 
-  transparent:"transparent"
+  transparent: 'transparent',
 };
 
 export {baseStyle, colors, fontFamily, sizes};
