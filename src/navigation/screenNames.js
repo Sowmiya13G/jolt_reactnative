@@ -6,11 +6,14 @@ import MyTripScreen from '../screens/myTrip';
 import OnboardingScreen from '../screens/onboardingScreen';
 import OTPScreen from '../screens/otpScreen';
 import RegisterScreen from '../screens/registerScreen';
+import SearchBusScreen from '../screens/searchBusScreen';
 import SearchScreen from '../screens/searchScreen';
+import SplashScreen from '../screens/splash';
 import WalletScreen from '../screens/wallet';
 
 
 export default {
+  SplashScreen,
   OnboardingScreen,
   LoginScreen,
   ForgotPasswordScreen,
@@ -21,4 +24,5 @@ export default {
   WalletScreen,
   AccountScreen,
   SearchScreen,
+  SearchBusScreen
 };

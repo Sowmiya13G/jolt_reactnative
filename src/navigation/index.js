@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 //navigation
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NavigationService from './NavigationService';
 
 // constant
-import { SCREENS } from '../constant';
+import {SCREENS} from '../constant';
 import ScreenName from './screenNames';
 import BottomNavigation from './bottomTabNavigator';
 
@@ -14,6 +14,10 @@ const AppStack = () => {
   const Stack = createNativeStackNavigator();
 
   const ScreensComponentArr = [
+    {
+      ScreenName: SCREENS.SPLASH_SCREEN,
+      Component: ScreenName.SplashScreen,
+    },
     {
       ScreenName: SCREENS.ONBOARDING,
       Component: ScreenName.OnboardingScreen,
@@ -42,7 +46,7 @@ const AppStack = () => {
 
   return (
     <NavigationContainer ref={NavigationService.navigationRef}>
-      <Stack.Navigator initialRouteName={SCREENS.ONBOARDING}>
+      <Stack.Navigator initialRouteName={SCREENS.SPLASH_SCREEN}>
         {ScreensComponentArr.map(({ScreenName, Component}) => (
           <Stack.Screen
             key={ScreenName}

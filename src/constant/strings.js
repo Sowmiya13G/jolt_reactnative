@@ -26,7 +26,7 @@ const strings = {
   signInWith: 'Or Sign In With',
   noAcc: 'Don’t have an account yet?',
   createAcc: ' Create Account',
-  sendOTP: 'Send OPT',
+  sendOTP: 'Send OTP',
   forgotPasswordDisc:
     'You will be redirected to the main page in a few moments',
   sendCode: 'Send Code',

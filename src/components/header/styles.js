@@ -45,6 +45,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
   },
+
+  rightIcon: {
+    ...baseStyle.iconStyle('5.5%'),
+    justifyContent: 'center',
+    alignSelf: 'flex-end',
+  },
+
+  rightIconView: {
+    marginHorizontal: wp('2%'),
+    justifyContent: 'center',
+  },
+  date: {},
+  column: {
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+  },
   horizontalLine: {
     height: wp('0.3%'),
     backgroundColor: colors.lineGrey,

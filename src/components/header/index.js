@@ -3,10 +3,7 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 
 //packages
 import PropTypes from 'prop-types';
-import {
-  heightPercentageToDP,
-  widthPercentageToDP,
-} from 'react-native-responsive-screen';
+import {heightPercentageToDP} from 'react-native-responsive-screen';
 
 //styles
 import styles from './styles';
@@ -18,45 +15,53 @@ import Spacer from '../spacer';
 import {iconPathURL} from '../../constant/iconpath';
 import {baseStyle, colors, sizes} from '../../constant/theme';
 
+// utils
+import {formatDateLabel} from '../../utils/helperFunctions';
 
 const Header = props => {
   //prop
   const {
-    goBack,
     color,
     title,
-    leftIcon1 = iconPathURL.backArrow,
-    customRightIconStyle,
-    rightIcon1Press = () => {},
-    greyView = {},
-    leftIcon = {},
-    notificationTxt = true,
-    isNotificationScreen = false,
-    notificationScreenBtn,
-    handleNotification = () => {},
     tintColor = colors.white,
-    isLeftIcon = true,
     isHomeHeader = false,
     isCommonHeader = true,
     titleData,
     sessionColor,
+
+    // left icon
+    isLeftIcon = true,
+    leftIcon1 = iconPathURL.backArrow,
+    goBack,
+
+    // right icon
+    isRightIcon,
+    rightIcon,
+    rightIconPress = () => {},
+    rightTintColor = colors.black,
+    date,
   } = props;
 
   return (
     <View style={styles.rootContainer}>
+      {/* ---------------------------- LEFT ICON ---------------------------- */}
       {Boolean(isLeftIcon) && (
         <TouchableOpacity
           onPress={() => {
             Boolean(goBack) && goBack();
           }}
           style={styles.leftIconView}>
-          <Image
-            resizeMode="contain"
-            style={[styles.imageOnboarding, {tintColor: tintColor}]}
-            source={leftIcon1}
-          />
+          {Boolean(leftIcon1) && (
+            <Image
+              resizeMode="contain"
+              style={[styles.imageOnboarding, {tintColor: tintColor}]}
+              source={leftIcon1}
+            />
+          )}
         </TouchableOpacity>
       )}
+      {/* ---------------------------- COMMON HEADER---------------------------- */}
+
       {Boolean(isCommonHeader) && (
         <View style={styles.titleText}>
           <Text
@@ -68,6 +73,9 @@ const Header = props => {
           </Text>
         </View>
       )}
+
+      {/* ---------------------------- HOME SCREEN HEADER---------------------------- */}
+
       {Boolean(isHomeHeader) && (
         <View style={{flex: 1}}>
           <Spacer height={heightPercentageToDP('2%')} />
@@ -82,51 +90,108 @@ const Header = props => {
               </Text>
               <Spacer height={heightPercentageToDP('0.5%')} />
               <Text
-                style={[baseStyle.txtStyleOutInterSemiBold(sizes.size3, color)]}>
+                style={[
+                  baseStyle.txtStyleOutInterSemiBold(sizes.size3, color),
+                ]}>
                 {titleData?.user}
               </Text>
             </View>
             <TouchableOpacity style={styles.notificationView}>
-              <Image
-                source={iconPathURL.notification}
-                style={styles.notificationIcon}
-              />
+              {Boolean(iconPathURL.notification) && (
+                <Image
+                  source={iconPathURL.notification}
+                  style={styles.notificationIcon}
+                />
+              )}
             </TouchableOpacity>
           </View>
           <Spacer height={heightPercentageToDP('1.5%')} />
           <View style={styles.horizontalLine} />
         </View>
       )}
+
+      {/* ---------------------------- RIGHT ICON---------------------------- */}
+
+      {Boolean(isRightIcon) && (
+        <>
+          {Boolean(date) && (
+            <>
+              {(() => {
+                const formattedDate = formatDateLabel(date, true);
+                const [weekday, dayMonth] = formattedDate.split(', ');
+
+                return (
+                  <View style={styles.column}>
+                    <Text
+                      style={[
+                        baseStyle.txtStyleOutInterRegular(sizes.size01, color),
+                      ]}>
+                      {weekday},
+                    </Text>
+                    <Text
+                      style={[
+                        baseStyle.txtStyleOutInterMedium(sizes.size01, color),
+                      ]}>
+                      {dayMonth}
+                    </Text>
+                  </View>
+                );
+              })()}
+            </>
+          )}
+          <TouchableOpacity
+            onPress={() => {
+              Boolean(rightIconPress) && rightIconPress();
+            }}
+            style={styles.rightIconView}>
+            {Boolean(rightIcon) && (
+              <Image
+                resizeMode="contain"
+                style={[styles.rightIcon, {tintColor: rightTintColor}]}
+                source={rightIcon}
+              />
+            )}
+          </TouchableOpacity>
+        </>
+      )}
     </View>
   );
 };
 
 Header.propTypes = {
-  goBack: PropTypes.func,
-  color: PropTypes.string,
   title: PropTypes.string,
-  leftIcon1: PropTypes.string,
-  leftIcon2: PropTypes.string,
-  rightIcon1: PropTypes.string,
-  customRightIconStyle: PropTypes.object,
-  rightIcon1Press: PropTypes.func,
-  isLeftIcon2Pressable: PropTypes.bool,
-  type: PropTypes.number,
-  greyView: PropTypes.object,
-  leftIcon: PropTypes.object,
-  notificationTxt: PropTypes.bool,
-  isNotificationScreen: PropTypes.bool,
-  notificationScreenBtn: PropTypes.string,
-  handleNotification: PropTypes.func,
-  leftContainer: PropTypes.shape({
-    onPress: PropTypes.func,
-  }),
-  rightContainer: PropTypes.shape({
-    text: PropTypes.string,
-    onPress: PropTypes.func,
-  }),
-  leftIconPress: PropTypes.func,
+  color: PropTypes.string,
+  tintColor: PropTypes.string,
+  isHomeHeader: PropTypes.bool,
+  isCommonHeader: PropTypes.bool,
+  titleData: PropTypes.object,
+  sessionColor: PropTypes.string,
+
+  // Left icon props
+  isLeftIcon: PropTypes.bool,
+  leftIcon1: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  goBack: PropTypes.func,
+
+  // Right icon props
+  isRightIcon: PropTypes.bool,
+  rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   rightIconPress: PropTypes.func,
+  rightTintColor: PropTypes.string,
+
+  // Date props
+  date: PropTypes.string,
+};
+
+Header.defaultProps = {
+  tintColor: colors.white,
+  isHomeHeader: false,
+  isCommonHeader: true,
+  sessionColor: colors.black,
+  isLeftIcon: true,
+  leftIcon1: iconPathURL.backArrow,
+  rightIconPress: () => {},
+  rightTintColor: colors.black,
+  date: null,
 };
 
 export default Header;

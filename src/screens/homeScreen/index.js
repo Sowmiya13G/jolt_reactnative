@@ -96,7 +96,7 @@ const HomeScreen = props => {
           {dashboard.availableDates}
         </Text>
         <Spacer height={hp('2%')} />
-        <RenderDates data={getNextDates()} isDates={true} />
+        <RenderDates data={getNextDates()} isDates={true} isTrips={false} />
         <Spacer height={hp('5%')} />
         <Button
           onPress={() => {
@@ -107,6 +107,19 @@ const HomeScreen = props => {
           textStyle={styles.textStyle}
           icon={iconPathURL.search}
         />
+        <Spacer height={hp('3%')} />
+        <Text
+          onPress={() =>
+            NavigationService.navigate(SCREENS.SEARCH_BUS_SCREEN, {
+              data: {from: 'Chennai', to: 'Bangalore', date: '20244-11-15'},
+            })
+          }
+          style={[
+            baseStyle.txtStyleOutInterRegular(sizes.size02, colors.textBlack),
+            styles.texAlign
+          ]}>
+          GO TO SEATS
+        </Text>
       </View>
     );
   };

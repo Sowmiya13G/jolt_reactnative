@@ -25,7 +25,7 @@ import {baseStyle, colors, sizes} from '../../constant/theme';
 // styles
 import styles from './styles';
 
- const OnboardingScreen = props => {
+const OnboardingScreen = props => {
   //props
   const {} = props;
 
@@ -139,6 +139,7 @@ import styles from './styles';
         }}
         scrollEventThrottle={16}
       />
+      <Spacer height={hp('2%')} />
       <View style={styles.paginationWrapper}>
         {onboardingData.map((_, index) => {
           const backgroundColor = animation.interpolate({

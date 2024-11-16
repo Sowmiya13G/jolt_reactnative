@@ -28,6 +28,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: wp('2%'),
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  recent: {
+    width: '100%',
+  },
 });
 
 export default styles;

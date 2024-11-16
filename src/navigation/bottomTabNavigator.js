@@ -66,7 +66,7 @@ const BottomNavigation = () => {
         <Tab.Screen
           key={idx}
           name={tab?.name}
-          component={tab?.component} 
+          component={tab?.component}
           options={{
             tabBarIcon: ({focused}) => (
               <AnimatedIcon icon={tab.icon} focused={focused} />
@@ -102,21 +102,32 @@ const AnimatedIcon = ({icon, focused}) => {
 };
 
 const styles = StyleSheet.create({
+  tabBarStyle: {
+    height:
+      Platform?.OS == 'android'
+        ? heightPercentageToDP('7%')
+        : heightPercentageToDP('9%'),
+  },
   iconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     width: widthPercentageToDP('10%'),
-    height: heightPercentageToDP('5%'),
+    height:
+      Platform.OS === 'ios'
+        ? heightPercentageToDP('4%')
+        : heightPercentageToDP('5%'),
   },
   icon: {
     resizeMode: 'contain',
+    top: Platform.OS === 'ios' ? heightPercentageToDP('0.5%') : null,
   },
   tabBarLabelStyle: focused => ({
     ...(focused
       ? baseStyle.txtStyleOutInterMedium(sizes.size011, colors.orange)
       : baseStyle.txtStyleOutInterRegular(sizes.size011, colors.grey)),
     color: focused ? colors.orange : colors.grey,
-    top: Platform.OS === 'ios' ? null : heightPercentageToDP('-2%'),
+    top: Platform.OS === 'ios' ? heightPercentageToDP('0.5%') : null,
+    bottom: Platform.OS === 'ios' ? null : heightPercentageToDP('0.5%'),
   }),
 });
 

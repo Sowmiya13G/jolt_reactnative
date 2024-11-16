@@ -21,16 +21,16 @@ export const onboardingData = [
 
 export const genderData = [
   {
-    label: "Male",
-    value: "Male",
+    label: 'Male',
+    value: 'Male',
   },
   {
-    label: "Female",
-    value: "Female",
+    label: 'Female',
+    value: 'Female',
   },
   {
-    label: "Others",
-    value: "Others",
+    label: 'Others',
+    value: 'Others',
   },
 ];
 
@@ -59,4 +59,15 @@ export const registerScreenFields = [
     placeHolder: strings.mobileNo,
     leftIcon: iconPathURL.call,
   },
+];
+
+export const filterData = [
+  {id: 1, label: 'AC', value: 'AC'},
+  {id: 2, label: 'Washroom', value: 'Washroom'},
+  {id: 3, label: 'Sleeper', value: 'Sleeper'},
+  {id: 4, label: 'Washroom', value: 'Washroom'},
+  {id: 5, label: 'Semi-Sleeper', value: 'Semi-Sleeper'},
+  {id: 6, label: 'Seater', value: 'Seater'},
+  {id: 7, label: 'Complimentary', value: 'Complimentary'},
+  {id: 8, label: 'Low price', value: 'Low price'},
 ];

@@ -85,6 +85,7 @@ const OTPScreen = props => {
         return true;
     }
   };
+  console.log(otpRef.current);
 
   // ----------------- functions ---------------------
 

@@ -35,6 +35,8 @@ const iconPathURL = {
   location: require('../assets/images/location.png'),
   next: require('../assets/images/next.png'),
   previous: require('../assets/images/previous.png'),
+  filter: require('../assets/images/filter.png'),
+  point: require('../assets/images/point.png'),
 };
 
 export {iconPathURL};

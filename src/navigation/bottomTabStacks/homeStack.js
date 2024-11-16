@@ -18,6 +18,10 @@ const DashboardStack = () => {
       ScreenName: SCREENS.SEARCH_SCREEN,
       Component: ScreenName.SearchScreen,
     },
+    {
+      ScreenName: SCREENS.SEARCH_BUS_SCREEN,
+      Component: ScreenName.SearchBusScreen,
+    },
   ];
 
   return (

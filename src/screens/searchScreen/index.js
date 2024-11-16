@@ -173,6 +173,7 @@ const SearchScreen = props => {
               isDates={false}
               onTripSelect={handleTripSelect}
             />
+                <Spacer height={hp('2%')} />
           </>
         )}
       </View>

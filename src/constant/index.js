@@ -3,6 +3,7 @@ import * as theme from './theme';
 
 const SCREENS = {
   //  ---- common ----
+  SPLASH_SCREEN:"SplashScreen",
   LOGIN: 'LoginSCreen',
   ONBOARDING: 'OnboardingScreen',
   FORGOT_PASSWORD: 'ForgotPasswordScreen',
@@ -17,5 +18,6 @@ const SCREENS = {
   WALLET_SCREEN: 'WalletScreen',
   BOTTOM_TAB_NAV: 'BottomTabNavigator',
   SEARCH_SCREEN: 'SearchScreen',
+  SEARCH_BUS_SCREEN: 'SearchBusScreen',
 };
 export {SCREENS, iconPath, theme};

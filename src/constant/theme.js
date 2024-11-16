@@ -90,6 +90,8 @@ const colors = {
   lightWhite: '#F9FAFB',
   ghostWhite: '#F9FAFB',
 
+  cardShade: '#EAECF0',
+
   orange: '#FD6905',
   red: '#D92D20',
 
@@ -109,7 +111,8 @@ const colors = {
   boldBorderGrey: '#D0D5DD',
   adGrey: '#ABABAB',
   midGrey: '#555555',
-  mid1Grey:"#868685",
+  mid1Grey: '#868685',
+  darkGrey2: '#475467',
 
   // green variants
   lightGreen: '#24DD7D',
@@ -117,9 +120,12 @@ const colors = {
   basilGreen: '#8EB43C',
   paleGreen: '#CDEED6',
   pastelGreen: '#20463C',
+  splashGreen: '#129C38',
 
   // blue variants
   blue: '#0056F4',
+
+  yellow: '#FDC400',
 
   transparent: 'transparent',
 };

@@ -33,11 +33,6 @@ const CalenderComponent = ({
 
   const getTodayDate = () => new Date().toISOString().split('T')[0];
 
-  const handleDayPress = day => {
-    setDate(day.dateString);
-    setShowCalenderModal(false);
-  };
-
   const today = getTodayDate();
 
   const renderCustomHeader = date => {
@@ -85,7 +80,7 @@ const CalenderComponent = ({
       visible={showCalenderModal}
       transparent
       animationType="fade"
-      onRequestClose={() => setShowCalenderModal(false)}>
+      onRequestClose={() => {}}>
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
           <Spacer height={hp('2%')} />
@@ -112,11 +107,11 @@ const CalenderComponent = ({
           <Calendar
             key={currentMonth}
             current={currentMonth}
-            onDayPress={handleDayPress}
+            onDayPress={day => setDate(day.dateString)}
             markingType={'custom'}
             dayNamesShort={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
             theme={styles.calendarThemeStyles}
-            minDate={today}
+            // minDate={today}
             renderHeader={() => renderCustomHeader(date)}
             hideArrows={true}
             markedDates={{
@@ -162,7 +157,7 @@ const CalenderComponent = ({
               )}
             />
             <Button
-              onPress={() => {}}
+              onPress={() => setShowCalenderModal(false)}
               text={dashboard.ok}
               textColor={colors.black}
               buttonStyle={styles.okBtn}

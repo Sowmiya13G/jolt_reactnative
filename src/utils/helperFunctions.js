@@ -42,11 +42,28 @@ export function getNextDates() {
   nextDay2.setDate(nextDay1.getDate() + 1);
 
   const dates = [
-    { index: 0, label: 'Today', date: formatDate(today) },
-    { index: 1, label: 'Tomorrow', date: formatDate(tomorrow) },
-    { index: 2, label: formatShortDate(nextDay1), date: formatDate(nextDay1) },
-    { index: 3, label: formatFullDate(nextDay2), date: formatDate(nextDay2) },
+    {index: '0', label: 'Today', date: formatDate(today)},
+    {index: '1', label: 'Tomorrow', date: formatDate(tomorrow)},
+    {index: '2', label: formatShortDate(nextDay1), date: formatDate(nextDay1)},
+    {index: '3', label: formatFullDate(nextDay2), date: formatDate(nextDay2)},
   ];
 
   return dates;
 }
+
+export const formatDateLabel = (date, isShortFormat = false) => {
+  const options = {weekday: 'short', month: 'short', day: '2-digit'};
+
+  const formattedDate = new Date(date)
+    .toLocaleDateString('en-US', options)
+    .replace(',', '')
+    .replace(' ', ',');
+
+  if (isShortFormat) {
+    const [weekday, monthDay, year] = formattedDate.split(',');
+    const [month, day] = monthDay.trim().split(' ');
+    return `${weekday}, ${day} ${month}`;
+  }
+
+  return formattedDate;
+};

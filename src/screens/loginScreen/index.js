@@ -95,13 +95,18 @@ const LoginScreen = props => {
         <Spacer height={hp('2%')} />
         <View style={[styles.subContainer]}>
           <Text
-            style={[baseStyle.txtStyleOutInterBold(sizes.size3, colors.textBlack)]}>
+            style={[
+              baseStyle.txtStyleOutInterBold(sizes.size3, colors.textBlack),
+            ]}>
             {strings.loginWithUrAcc}
           </Text>
           <Spacer height={hp('1%')} />
           <Text
             style={[
-              baseStyle.txtStyleOutInterRegular(sizes.size011, colors.secondaryGrey),
+              baseStyle.txtStyleOutInterRegular(
+                sizes.size011,
+                colors.secondaryGrey,
+              ),
             ]}>
             {strings.enjoyFeatures}
           </Text>
@@ -188,24 +193,6 @@ const LoginScreen = props => {
           </View>
           {renderSocialLoginButtons()}
           <Spacer height={hp('2%')} />
-          <View style={styles.alignSelf}>
-            <Text
-              style={[
-                baseStyle.txtStyleOutInterMedium(
-                  sizes.size2,
-                  colors.textGrey,
-                ),
-              ]}>
-              {strings.noAcc}{' '}
-              <Text
-                style={[
-                  baseStyle.txtStyleOutInterMedium(sizes.size2, colors.orange),
-                ]}>
-                {strings.createAcc}
-              </Text>
-            </Text>
-          </View>
-          <Spacer height={hp('5%')} />
         </View>
       </>
     );
@@ -222,6 +209,21 @@ const LoginScreen = props => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={renderBody}
       />
+      <View style={styles.alignSelf}>
+        <Text
+          style={[
+            baseStyle.txtStyleOutInterMedium(sizes.size2, colors.textGrey),
+          ]}>
+          {strings.noAcc}{' '}
+          <Text
+            style={[
+              baseStyle.txtStyleOutInterMedium(sizes.size2, colors.orange),
+            ]}>
+            {strings.createAcc}
+          </Text>
+        </Text>
+      </View>
+      <Spacer height={hp('5%')} />
     </CustomSafeArea>
   );
 };

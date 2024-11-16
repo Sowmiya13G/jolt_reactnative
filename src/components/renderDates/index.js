@@ -43,7 +43,7 @@ const RenderDates = ({data, isDates = true, isTrips = false, onTripSelect}) => {
 
   const renderItem = ({item}) => {
     const isSelected = selectedDate?.date === item?.date;
-    const isLastItem = data?.length - 1 === item?.index;
+    const isLastItem = Number(data?.length) - 1 === Number(item?.index);
     return (
       <TouchableOpacity
         onPress={() => handleSelect(item)}
@@ -77,7 +77,7 @@ const RenderDates = ({data, isDates = true, isTrips = false, onTripSelect}) => {
     return (
       <TouchableOpacity
         onPress={() => handleSelect(item)}
-        style={styles.view(isSelected)}>
+        style={styles.tripView(isSelected)}>
         <Text
           style={[
             baseStyle.txtStyleOutInterRegular(
@@ -149,13 +149,7 @@ const RenderDates = ({data, isDates = true, isTrips = false, onTripSelect}) => {
 };
 
 RenderDates.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      index: PropTypes.number,
-    }),
-  ).isRequired,
+  data: PropTypes.object,
 };
 
 export default RenderDates;
