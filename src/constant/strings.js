@@ -74,13 +74,25 @@ const dashboard = {
   searchBus: 'Search Bus',
   recentTrips: 'Recent Trips',
   searchRoute: 'Search Your Route',
-  city:"City",
-  ok:"Ok",
-  cancel:"Cancel"
+  city: 'City',
+  ok: 'Ok',
+  cancel: 'Cancel',
 };
 
 const PLACEHOLDERS = {
   yourCurrentLocation: 'Your current location',
   searchForDestination: 'Search for a destination',
 };
-export {strings, dashboard, tabBar, PLACEHOLDERS};
+
+const ERROR_HANDLER_TEXT = {
+  firstNameReq: 'First name is required',
+  middleNameRed: 'Middle name is required',
+  genderReq: 'Gender is required',
+  dobReq: 'Date of birth is required',
+  pleaseEnterValidEmail: 'Please enter email',
+  pleaseEnterEmail: 'Please enter a valid email',
+  pleaseEnterMobileNo: 'Please enter phone number',
+  pleaseEnterValidMobileNo: 'Please enter a valid phone number',
+};
+
+export {strings, dashboard, tabBar, PLACEHOLDERS, ERROR_HANDLER_TEXT};

@@ -162,21 +162,7 @@ const TicketCard = props => {
 };
 
 TicketCard.propTypes = {
-  data: PropTypes.shape({
-    seatsLeft: PropTypes.string,
-    label: PropTypes.arrayOf(PropTypes.string),
-    name: PropTypes.string,
-    timePeriod: PropTypes.arrayOf(PropTypes.string),
-    duration: PropTypes.string,
-    types: PropTypes.arrayOf(
-      PropTypes.shape({
-        type: PropTypes.string,
-        seats: PropTypes.string,
-        price: PropTypes.string,
-      }),
-    ),
-    review: PropTypes.string,
-  }),
+  data: PropTypes.object,
   selectSeat: PropTypes.func,
   viewReview: PropTypes.func,
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   Image,
@@ -26,13 +26,12 @@ import SearchComponent from '../../components/searchComponent';
 import Spacer from '../../components/spacer';
 
 // constant
-import { iconPathURL } from '../../constant/iconpath';
-import { dashboard, PLACEHOLDERS } from '../../constant/strings';
-import { baseStyle, colors, sizes } from '../../constant/theme';
+import {iconPathURL} from '../../constant/iconpath';
+import {dashboard, PLACEHOLDERS} from '../../constant/strings';
+import {baseStyle, colors, sizes} from '../../constant/theme';
 
 // styles
 import styles from './styles';
-
 
 const SearchScreen = props => {
   //props
@@ -173,7 +172,7 @@ const SearchScreen = props => {
               isDates={false}
               onTripSelect={handleTripSelect}
             />
-                <Spacer height={hp('2%')} />
+            <Spacer height={hp('2%')} />
           </>
         )}
       </View>

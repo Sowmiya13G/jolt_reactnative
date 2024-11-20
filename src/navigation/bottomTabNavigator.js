@@ -1,30 +1,29 @@
 import React from 'react';
-import {Image, Platform, StyleSheet, Text} from 'react-native';
-
-// packages
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
 import {
-  heightPercentageToDP,
-  widthPercentageToDP,
-} from 'react-native-responsive-screen';
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-// constants
+// package
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+// constant
 import {SCREENS} from '../constant';
 import {iconPathURL} from '../constant/iconpath';
 import {tabBar} from '../constant/strings';
 import {baseStyle, colors, sizes} from '../constant/theme';
 import ScreenName from './screenNames';
+
 import DashboardStack from './bottomTabStacks/homeStack';
 
-const Tab = createBottomTabNavigator();
-
 const BottomNavigation = () => {
-  //screens
+  const [activeTab, setActiveTab] = React.useState(SCREENS.DASHBOARD);
+
+  // Tab items
   const screenItem = [
     {
       id: 1,
@@ -35,100 +34,112 @@ const BottomNavigation = () => {
     },
     {
       id: 2,
-      name: SCREENS?.MY_TRIP,
+      name: SCREENS.MY_TRIP,
       component: ScreenName?.MyTripScreen,
       title: tabBar?.myTrip,
       icon: iconPathURL?.trips,
     },
     {
       id: 3,
-      name: SCREENS?.ACCOUNT_SCREEN,
+      name: SCREENS.ACCOUNT_SCREEN,
       component: ScreenName?.AccountScreen,
       title: tabBar?.account,
       icon: iconPathURL?.person,
     },
     {
       id: 4,
-      name: SCREENS?.WALLET_SCREEN,
+      name: SCREENS.WALLET_SCREEN,
       component: ScreenName?.WalletScreen,
       title: tabBar?.wallet,
       icon: iconPathURL?.wallet,
     },
   ];
 
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarStyle: styles.tabBarStyle,
-        headerShown: false,
-      }}>
-      {screenItem?.map((tab, idx) => (
-        <Tab.Screen
-          key={idx}
-          name={tab?.name}
-          component={tab?.component}
-          options={{
-            tabBarIcon: ({focused}) => (
-              <AnimatedIcon icon={tab.icon} focused={focused} />
-            ),
-            tabBarLabel: ({focused}) => (
-              <Text style={styles.tabBarLabelStyle(focused)}>{tab.title}</Text>
-            ),
-          }}
-        />
-      ))}
-    </Tab.Navigator>
-  );
-};
-
-const AnimatedIcon = ({icon, focused}) => {
-  const borderWidth = useSharedValue(focused ? 3 : 0);
-
-  const animatedBorderStyle = useAnimatedStyle(() => ({
-    borderTopWidth: withTiming(borderWidth.value, {duration: 300}),
-    borderColor: colors.orange,
-  }));
-
-  const animatedIconStyle = {
-    tintColor: focused ? colors.orange : colors.grey,
-    ...baseStyle.iconStyle(focused ? '6.5%' : '5%'),
+  const renderScreen = () => {
+    switch (activeTab) {
+      case SCREENS.DASHBOARD:
+        return <DashboardStack />;
+      case SCREENS.MY_TRIP:
+        return <DashboardStack />;
+      case SCREENS.ACCOUNT_SCREEN:
+        return <DashboardStack />;
+      case SCREENS.WALLET_SCREEN:
+        return <DashboardStack />;
+    }
   };
 
   return (
-    <Animated.View style={[styles.iconContainer, animatedBorderStyle]}>
-      <Image source={icon} style={[styles.icon, animatedIconStyle]} />
-    </Animated.View>
+    <>
+      {renderScreen()}
+      <View style={styles.tabBarContainer}>
+        {screenItem.map(tab => {
+          const isActive = activeTab === tab.name;
+          return (
+            <TouchableOpacity
+              key={tab.id}
+              style={styles.tabItem}
+              onPress={() => setActiveTab(tab.name)}>
+              <View
+                style={[styles.iconContainer, isActive && styles.activeTab]}>
+                <Image source={tab.icon} style={[styles.icon(isActive)]} />
+                <Text
+                  style={[
+                    styles.tabLabel,
+                    isActive
+                      ? baseStyle.txtStyleOutInterMedium(
+                          sizes.size011,
+                          colors.orange,
+                        )
+                      : baseStyle.txtStyleOutInterRegular(
+                          sizes.size01,
+                          colors.grey,
+                        ),
+                  ]}>
+                  {tab.title}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  tabBarStyle: {
-    height:
-      Platform?.OS == 'android'
-        ? heightPercentageToDP('7%')
-        : heightPercentageToDP('9%'),
+  tabBarContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    height: Platform.OS === 'android' ? hp('7%') : hp('9%'),
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  tabItem: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   iconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: widthPercentageToDP('10%'),
-    height:
-      Platform.OS === 'ios'
-        ? heightPercentageToDP('4%')
-        : heightPercentageToDP('5%'),
+    height: Platform.OS === 'android' ? hp('7%') : hp('9%'),
   },
-  icon: {
+  icon: isActive => ({
     resizeMode: 'contain',
-    top: Platform.OS === 'ios' ? heightPercentageToDP('0.5%') : null,
-  },
-  tabBarLabelStyle: focused => ({
-    ...(focused
-      ? baseStyle.txtStyleOutInterMedium(sizes.size011, colors.orange)
-      : baseStyle.txtStyleOutInterRegular(sizes.size011, colors.grey)),
-    color: focused ? colors.orange : colors.grey,
-    top: Platform.OS === 'ios' ? heightPercentageToDP('0.5%') : null,
-    bottom: Platform.OS === 'ios' ? null : heightPercentageToDP('0.5%'),
+    ...baseStyle.iconStyle(isActive ? '7%' : '5%'),
+    tintColor: isActive ? colors.orange : colors.grey,
   }),
+  activeTab: {
+    borderTopWidth: 3,
+    borderColor: colors.orange,
+  },
+  tabLabel: {
+    marginTop: hp('0.5%'),
+  },
 });
 
 export default BottomNavigation;

@@ -36,7 +36,7 @@ const Header = props => {
 
     // right icon
     isRightIcon,
-    rightIcon,
+    rightIcon = iconPathURL.backArrow,
     rightIconPress = () => {},
     rightTintColor = colors.black,
     date,
@@ -169,12 +169,12 @@ Header.propTypes = {
 
   // Left icon props
   isLeftIcon: PropTypes.bool,
-  leftIcon1: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  leftIcon1: PropTypes.oneOfType([PropTypes.number,PropTypes.string, PropTypes.object]),
   goBack: PropTypes.func,
 
   // Right icon props
   isRightIcon: PropTypes.bool,
-  rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  rightIcon: PropTypes.oneOfType([PropTypes.number,PropTypes.string, PropTypes.object]),
   rightIconPress: PropTypes.func,
   rightTintColor: PropTypes.string,
 

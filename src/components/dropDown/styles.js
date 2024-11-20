@@ -39,16 +39,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
-  // text styles
   placeholder: {
     ...baseStyle.txtStyleOutInterRegular(sizes.size2, colors.darkGrey),
     flex: 1,
+    paddingLeft:"5%"
   },
   nodataText: {
     flex: 1,
     ...baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black),
     textAlign: 'center',
-    // top: hp("1%"),
   },
 
   // img styles

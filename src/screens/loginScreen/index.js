@@ -191,7 +191,18 @@ const LoginScreen = props => {
             </Text>
             <View style={styles.line} />
           </View>
-          {renderSocialLoginButtons()}
+          <Button
+            onPress={() => console.log(`Login with ${item.label}`)}
+            text={strings.google}
+            icon={iconPathURL.google}
+            spaceBetween={widthPercentageToDP('2%')}
+            textColor={colors.black}
+            buttonStyle={styles.socialBtn}
+            textStyle={baseStyle.txtStyleOutInterRegular(
+              sizes.size2,
+              colors.black,
+            )}
+          />
           <Spacer height={hp('2%')} />
         </View>
       </>

@@ -38,26 +38,32 @@ export const registerScreenFields = [
   {
     placeHolder: strings.firstName,
     leftIcon: iconPathURL.person,
+    key: 'firstName',
   },
   {
     placeHolder: strings.middleName,
     leftIcon: iconPathURL.person,
+    key: 'middleName',
   },
   {
     placeHolder: strings.gender,
     rightIcon: iconPathURL.dropdown,
+    key: 'gender',
   },
   {
     placeHolder: strings.dob,
     rightIcon: iconPathURL.calender,
+    key: 'dob',
   },
   {
     placeHolder: strings.email,
     leftIcon: iconPathURL.email,
+    key: 'email',
   },
   {
     placeHolder: strings.mobileNo,
     leftIcon: iconPathURL.call,
+    key: 'phoneNo',
   },
 ];
 

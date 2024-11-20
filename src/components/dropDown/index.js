@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from 'react';
 import {
   Image,
   ScrollView,
@@ -6,25 +6,25 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from "react-native";
+} from 'react-native';
 
 // packages
-import PropTypes from "prop-types";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import PropTypes from 'prop-types';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 // styles
-import styles from "./styles";
+import styles from './styles';
 
 //components
-import Spacer from "../spacer";
+import Spacer from '../spacer';
 // constant
-import { iconPathURL } from "../../constant/iconpath";
-import { baseStyle, colors, sizes } from "../../constant/theme";
+import {iconPathURL} from '../../constant/iconpath';
+import {baseStyle, colors, sizes} from '../../constant/theme';
 
 //timeout for typing
 var typingTimeout = null;
 
-const DropDown = (props) => {
+const DropDown = props => {
   //props
   const {
     title,
@@ -34,10 +34,10 @@ const DropDown = (props) => {
     onTypingEnd,
     dropdownData,
     toDisableOtherScroll,
-    enabelLocalSearch = false,
+    enableLocalSearch = false,
     onSelectItem,
     editable = true,
-    noDataText = "No data found!",
+    noDataText = 'No data found!',
     customLabelStyle,
     multiSelect,
     customDropdownContainerStyle,
@@ -46,7 +46,7 @@ const DropDown = (props) => {
     onDropdownOpen,
     noData,
     customStyle,
-    customeTitleStyle,
+    customTitleStyle,
     viewType,
     isReq = false,
     isEdit = true,
@@ -56,7 +56,7 @@ const DropDown = (props) => {
 
   //local state
   const [showDropdown, setShowDropdown] = useState(false);
-  const [text, setText] = useState(value?.label || "");
+  const [text, setText] = useState(value?.label || '');
   const [searchedDropdownData, setSearchedDropdownData] =
     useState(dropdownData);
   //useeffect
@@ -78,22 +78,22 @@ const DropDown = (props) => {
 
   // refresh value data
   useEffect(() => {
-    setText(value?.label || "");
+    setText(value?.label || '');
   }, [value]);
 
   // handle user typing
-  const handleTypingEnd = (value) => {
+  const handleTypingEnd = value => {
     Boolean(onTypingEnd) && onTypingEnd(value);
   };
 
   // search loacl data while search
-  const searchfilter = (text) => {
+  const searchfilter = text => {
     var data = [];
     if (text) {
-      const newData = dropdownData?.filter((item) => {
+      const newData = dropdownData?.filter(item => {
         const itemdata = item?.label
           ? item?.label?.toUpperCase()
-          : "".toUpperCase();
+          : ''.toUpperCase();
         const textdata = text?.toUpperCase();
         return itemdata.indexOf(textdata) > -1;
       });
@@ -117,10 +117,9 @@ const DropDown = (props) => {
         style={[
           viewType ? styles.fields : styles.container,
           viewType && Boolean(errText) && styles.errorField,
-          { ...customStyle },
-        ]}
-      >
-        {viewType && <Spacer height={hp("0.8%")} />}
+          {...customStyle},
+        ]}>
+        {viewType && <Spacer height={hp('0.8%')} />}
         {Boolean(title) && (
           <>
             <Text
@@ -129,16 +128,15 @@ const DropDown = (props) => {
                   ? baseStyle.txtStyleOutInterBold(sizes.size2, colors.black)
                   : baseStyle.txtStyleOutInterMedium(
                       sizes.size2,
-                      colors.otpColor
+                      colors.otpColor,
                     ),
                 viewType && styles.label,
-                { ...customLabelStyle },
-              ]}
-            >
+                {...customLabelStyle},
+              ]}>
               {title}
               {isReq && <Text style={styles.blackColor}>*</Text>}
             </Text>
-            <Spacer height={hp("0.5%")} />
+            <Spacer height={hp('0.5%')} />
           </>
         )}
         <TouchableOpacity
@@ -153,25 +151,24 @@ const DropDown = (props) => {
           disabled={editable}
           style={[
             styles.titleContainer,
-            { ...(showDropdown && styles.oBottonBorderRadius) },
-            { ...(Boolean(errText) && { borderColor: colors.red }) },
-            { ...customeTitleStyle },
-          ]}
-        >
+            {...(showDropdown && styles.oBottonBorderRadius)},
+            // {...(Boolean(errText) && {borderColor: colors.red})},
+            {...customTitleStyle},
+          ]}>
           <TextInput
             value={
               multiSelect
                 ? Boolean(value) && value?.length > 0
-                  ? value?.map((x) => x.label)?.join()
-                  : ""
+                  ? value?.map(x => x.label)?.join()
+                  : ''
                 : text.length > 25
-                ? text.slice(0, 35) + "…"
+                ? text.slice(0, 35) + '…'
                 : text
             }
-            onChangeText={(value) => {
+            onChangeText={value => {
               if (typingTimeout) clearTimeout(typingTimeout);
               setText(value);
-              enabelLocalSearch && searchfilter(value);
+              enableLocalSearch && searchfilter(value);
               typingTimeout = setTimeout(() => handleTypingEnd(value), 1000);
             }}
             placeholder={placeholder}
@@ -182,14 +179,13 @@ const DropDown = (props) => {
           />
           <TouchableOpacity
             disabled={!editable}
-            onPress={() => setShowDropdown(!showDropdown)}
-          >
+            onPress={() => setShowDropdown(!showDropdown)}>
             {isIcon && (
               <Image
                 source={dropdownIcon}
                 style={[
                   styles.dropdownIcon,
-                  { ...(showDropdown && styles.rotate90Deg) },
+                  {...(showDropdown && styles.rotate90Deg)},
                 ]}
               />
             )}
@@ -200,20 +196,19 @@ const DropDown = (props) => {
             style={[
               styles.dropdownContainer,
               {
-                height: searchedDropdownData.length < 3 ? hp("8%") : hp("14%"),
+                height: searchedDropdownData.length < 3 ? hp('8%') : hp('14%'),
               },
               customDropdownContainerStyle,
-            ]}
-          >
+            ]}>
             <ScrollView nestedScrollEnabled={true}>
               {searchedDropdownData.length > 0 ? (
                 searchedDropdownData.map((item, index) => {
                   const isItemSelected = multiSelect
-                    ? value?.findIndex((x) => x.value == item.value) != -1
+                    ? value?.findIndex(x => x.value == item.value) != -1
                     : value?.value == item?.value;
                   return (
                     <View key={`${index}${placeholder}`}>
-                      {index != 0 && <Spacer height={hp("1%")} />}
+                      {index != 0 && <Spacer height={hp('1%')} />}
                       <TouchableOpacity
                         onPress={() => {
                           !multiSelect && setShowDropdown(false);
@@ -221,8 +216,7 @@ const DropDown = (props) => {
                           setText(item?.label);
                           Boolean(onSelectItem) && onSelectItem(item);
                         }}
-                        style={styles.dropdownTextContainer}
-                      >
+                        style={styles.dropdownTextContainer}>
                         <Text style={styles.placeholder}>{item?.label}</Text>
                         {isItemSelected && (
                           <Image
@@ -242,16 +236,18 @@ const DropDown = (props) => {
         )}
       </View>
       {showErrText && Boolean(errText) && (
-        <Text
-          style={[
-            viewType
-              ? baseStyle.txtStyleOutInterMedium(sizes.size1, colors.red)
-              : baseStyle.txtStyleOutInterRegular(sizes.size1, colors.red),
-            viewType && styles.label,
-          ]}
-        >
-          {viewType && "*"} {errText}
-        </Text>
+        <>
+          <Spacer height={hp('0.5%')} />
+          <Text
+            style={[
+              viewType
+                ? baseStyle.txtStyleOutInterMedium(sizes.size1, colors.red)
+                : baseStyle.txtStyleOutInterRegular(sizes.size1, colors.red),
+              viewType && styles.label,
+            ]}>
+            {viewType && '*'} {errText}
+          </Text>
+        </>
       )}
     </>
   );
@@ -265,7 +261,7 @@ DropDown.propTypes = {
   onTypingEnd: PropTypes.func,
   dropdownData: PropTypes.array.isRequired,
   toDisableOtherScroll: PropTypes.func,
-  enabelLocalSearch: PropTypes.bool,
+  enableLocalSearch: PropTypes.bool,
   onSelectItem: PropTypes.func,
   editable: PropTypes.bool,
   noDataText: PropTypes.string,
@@ -277,7 +273,7 @@ DropDown.propTypes = {
   onDropdownOpen: PropTypes.func,
   noData: PropTypes.func,
   customStyle: PropTypes.object,
-  customeTitleStyle: PropTypes.object,
+  customTitleStyle: PropTypes.object,
   viewType: PropTypes.bool,
   isReq: PropTypes.bool,
 };

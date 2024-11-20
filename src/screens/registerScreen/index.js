@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 // navigation
 import NavigationService from '../../navigation/NavigationService';
@@ -26,7 +32,9 @@ import {strings} from '../../constant/strings';
 import {baseStyle, colors, sizes} from '../../constant/theme';
 
 // styles
+import {validateRegisterForm} from '../../utils/validation';
 import styles from './styles';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const initialData = {
   firstName: '',
@@ -44,20 +52,44 @@ const RegisterScreen = props => {
   const [errData, setErrData] = useState(initialData);
   const [check, setCheck] = useState(false);
 
+  const handleInputChange = (fieldName, value) => {
+    setErrData({
+      ...errData,
+      [fieldName]: '',
+    });
+    setData({
+      ...data,
+      [fieldName]: value,
+    });
+  };
+
+  const handleSubmit = () => {
+    const errors = validateRegisterForm(data);
+    if (Object.keys(errors).length > 0) {
+      setErrData(errors);
+    } else {
+      NavigationService.navigate(SCREENS.OTP_SCREEN, {
+        type: strings.forgotPasswordTitle,
+      });
+    }
+  };
+
   const renderInputFields = () => {
-    return registerScreenFields.map((field, index) => (
+    return registerScreenFields.map((field, index, key) => (
       <View key={index}>
         {field?.placeHolder == 'Gender' ? (
           <>
             <DropDown
               editable={true}
-              enabelLocalSearch={true}
+              enableLocalSearch={true}
               placeholder={field.placeHolder}
               dropdownData={genderData}
               value={data[index]}
-              onSelectItem={item => {}}
+              onSelectItem={item => handleInputChange(field.key, item)}
               onTypingEnd={() => {}}
               customStyle={styles.dropDown}
+              showErrText={!!errData[field.key]}
+              errText={errData[field.key]}
             />
             <Spacer height={hp('2%')} />
           </>
@@ -71,14 +103,12 @@ const RegisterScreen = props => {
               headerColor={colors.placeHolderTextColor}
               placeHolderTextColor={colors.placeHolderColor}
               CustomStyle={styles.input}
-              errText={errData[field.placeHolder.toLowerCase()]}
-              onChangeText={text =>
-                handleInputChange(
-                  field.placeHolder.toLowerCase().replace(/\s+/g, ''),
-                  text,
-                )
-              }
+              showErrText={!!errData[field.key]}
+              errText={errData[field.key]}
+              onChangeText={text => handleInputChange(field.key, text)}
               customInputStyle={field.rightIcon && styles.inputStyle}
+              keyboardType={field.key === 'numeric' ? 10 : undefined}
+              maxLength={field.key === 'phoneNo' ? 10 : undefined}
             />
             <Spacer height={hp('2%')} />
           </>
@@ -89,7 +119,7 @@ const RegisterScreen = props => {
 
   const renderBody = () => {
     return (
-      <View style={styles.subContainer}>
+      <KeyboardAwareScrollView style={styles.subContainer}>
         <Spacer height={hp('7%')} />
         <Text
           style={[
@@ -151,9 +181,7 @@ const RegisterScreen = props => {
         <Spacer height={hp('2%')} />
         <Button
           onPress={() => {
-            NavigationService.navigate(SCREENS.OTP_SCREEN, {
-              type: strings.forgotPasswordTitle,
-            });
+            handleSubmit();
           }}
           text={strings.register}
           textColor={colors.white}
@@ -190,7 +218,7 @@ const RegisterScreen = props => {
           </Text>
         </Text>
         <Spacer height={hp('2%')} />
-      </View>
+      </KeyboardAwareScrollView>
     );
   };
 

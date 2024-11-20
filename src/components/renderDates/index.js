@@ -149,7 +149,7 @@ const RenderDates = ({data, isDates = true, isTrips = false, onTripSelect}) => {
 };
 
 RenderDates.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.array,
 };
 
 export default RenderDates;

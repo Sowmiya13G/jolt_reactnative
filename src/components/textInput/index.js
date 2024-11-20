@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, {useState} from 'react';
+import {Image, Text, TextInput, TouchableOpacity, View} from 'react-native';
 
 // packages
 import PropTypes from 'prop-types';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 // components
 import Spacer from '../spacer';
 
 //constant
-import { iconpathurl } from '../../constant/iconpath';
-import { strings } from '../../constant/strings';
-import { baseStyle, colors, sizes } from '../../constant/theme';
+import {iconpathurl} from '../../constant/iconpath';
+import {strings} from '../../constant/strings';
+import {baseStyle, colors, sizes} from '../../constant/theme';
 
 //style
 import styles from './styles';
@@ -116,6 +116,22 @@ const TextInputComponent = props => {
           </TouchableOpacity>
         )}
       </View>
+      {showErrText && Boolean(errText) && (
+        <>
+          <Spacer height={hp('0.5%')} />
+          <Text
+            style={[
+              viewType
+                ? baseStyle.txtStyleOutInterMedium(sizes.size01, colors.red)
+                : baseStyle.txtStyleOutInterRegular(sizes.size1, colors.red),
+              !viewType && styles.errText,
+              customErrTextStyle,
+              viewType && styles.label,
+            ]}>
+            {viewType && '*'} {errText}
+          </Text>
+        </>
+      )}
     </>
   );
 };
@@ -163,6 +179,5 @@ TextInputComponent.defaultProps = {
   suffix: false,
   isDisabled: false,
 };
-
 
 export default TextInputComponent;
