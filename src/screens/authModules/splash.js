@@ -8,7 +8,7 @@ import {heightPercentageToDP} from 'react-native-responsive-screen';
 import Spacer from '../../components/spacer';
 
 // styles
-import styles from './styles';
+import styles from '../styles/splash';
 
 // navigation
 import NavigationService from '../../navigation/NavigationService';
@@ -40,7 +40,7 @@ function SplashScreen() {
   return (
     <View style={styles.container}>
       <Image source={iconPathURL.logo} style={styles.splashImg} />
-      <Text style={[baseStyle.txtStyleOutInterBold(sizes.size4, colors.white)]}>
+      <Text style={[baseStyle.txtStyleOutInterBold(sizes.size4, colors.white_FF)]}>
         {strings.joltBus}
       </Text>
       <Spacer height={heightPercentageToDP('10%')} />

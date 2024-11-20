@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     minWidth: '75%',
     maxWidth: '85%',
     borderRadius: 10,
-    backgroundColor: 'white',
-    shadowColor: 'grey',
+    backgroundColor: 'white_FF',
+    shadowColor: 'grey_DD',
     shadowOffset: {
       width: 5,
       height: 5,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   bodyText: {
     textAlign: 'center',
     // color: "red",
-    ...baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black),
+    ...baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black_00),
   },
   footerButton: {
     padding: 12,

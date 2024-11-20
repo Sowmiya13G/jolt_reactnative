@@ -14,7 +14,8 @@
     "link:asset": "npx react-native-asset",
     "build:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "android:clean": "rm -rf ./android/app/src/main/res/drawable-mdpi/ && rm -rf ./android/app/src/main/res/raw/",
-    "build:devAndroid": "cd android && ./gradlew clean && ./gradlew assembleRelease && cd .. && open android/app/build/outputs/apk/release"
+    "build:devAndroid": "cd android && ./gradlew clean && ./gradlew assembleRelease && cd .. && open android/app/build/outputs/apk/release",
+    "postinstall": "cd ios && pod install && sed -i '' '/#include <string>/a\\\n#include \"functional\"' ./Pods/Flipper/xPlat/Flipper/FlipperTransportTypes.h"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.18",

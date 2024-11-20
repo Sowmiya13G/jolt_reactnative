@@ -7,8 +7,8 @@ import {baseStyle, colors} from '../../constant/theme';
 
 const styles = StyleSheet.create({
   viewContainer: {
-    backgroundColor: colors.lightWhite,
-    borderColor: colors.boldBorderGrey,
+    backgroundColor: colors.white_FB,
+    borderColor: colors.grey_DD,
     paddingHorizontal: wp('3%'),
     paddingVertical: wp('4%'),
     borderWidth: wp('0.3%'),
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   horizontalLine: {
     height: wp('0.3%'),
     width: '80%',
-    backgroundColor: colors.boldBorderGrey,
+    backgroundColor: colors.grey_DD,
     marginRight: wp('1%'),
   },
   swapIcon: {
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   arrowView: {
     padding: '4%',
-    backgroundColor: colors.paleGreen,
+    backgroundColor: colors.green_D6,
     borderRadius: wp('6%'),
   },
   verticalLine: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     height: '100%',
     borderStyle: 'dashed',
     borderWidth: 1,
-    borderColor: colors.borderGrey,
+    borderColor: colors.grey_D9,
     marginRight: wp('2%'),
   },
 });

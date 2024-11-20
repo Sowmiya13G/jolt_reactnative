@@ -29,7 +29,7 @@ const ReviewCard = props => {
     (_, index) => index < data?.points,
   );
   const getTintColor = filled => {
-    return filled ? colors.yellow : colors.grey;
+    return filled ? colors.yellow_00 : colors.grey_DD;
   };
 
   return (
@@ -37,7 +37,7 @@ const ReviewCard = props => {
       <View style={styles.viewContainer}>
         <Text
           style={[
-            baseStyle.txtStyleOutInterMedium(sizes.size2, colors.secondaryBlack),
+            baseStyle.txtStyleOutInterMedium(sizes.size2, colors.black_23),
           ]}>
           {data?.name}
         </Text>
@@ -47,7 +47,7 @@ const ReviewCard = props => {
             style={[
               baseStyle.txtStyleOutInterRegular(
                 sizes.size011,
-                colors.secondaryBlack,
+                colors.black_23,
               ),
             ]}>
             {data?.comment}
@@ -56,7 +56,7 @@ const ReviewCard = props => {
             style={[
               baseStyle.txtStyleOutInterRegular(
                 sizes.size011,
-                colors.secondaryBlack,
+                colors.black_23,
               ),
             ]}>
             {data?.date}
@@ -76,7 +76,7 @@ const ReviewCard = props => {
             style={[
               baseStyle.txtStyleOutInterRegular(
                 sizes.size02,
-                colors.secondaryBlack,
+                colors.black_23,
               ),
             ]}>
             {data?.points}

@@ -23,7 +23,7 @@ const Header = props => {
   const {
     color,
     title,
-    tintColor = colors.white,
+    tintColor = colors.white_FF,
     isHomeHeader = false,
     isCommonHeader = true,
     titleData,
@@ -38,7 +38,7 @@ const Header = props => {
     isRightIcon,
     rightIcon = iconPathURL.backArrow,
     rightIconPress = () => {},
-    rightTintColor = colors.black,
+    rightTintColor = colors.black_00,
     date,
   } = props;
 
@@ -183,14 +183,14 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  tintColor: colors.white,
+  tintColor: colors.white_FF,
   isHomeHeader: false,
   isCommonHeader: true,
-  sessionColor: colors.black,
+  sessionColor: colors.black_00,
   isLeftIcon: true,
   leftIcon1: iconPathURL.backArrow,
   rightIconPress: () => {},
-  rightTintColor: colors.black,
+  rightTintColor: colors.black_00,
   date: null,
 };
 

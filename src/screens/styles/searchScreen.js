@@ -1,3 +1,4 @@
+// Search screen styles
 import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -12,11 +13,11 @@ const styles = StyleSheet.create({
   subContainer: {
     marginHorizontal: wp('5%'),
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
   },
   horizontalLine: {
     height: wp('0.3%'),
-    backgroundColor: colors.borderLightGrey,
+    backgroundColor: colors.grey_DB,
   },
   location: {
     ...baseStyle.iconStyle('7%'),

@@ -125,7 +125,7 @@ const DropDown = props => {
             <Text
               style={[
                 viewType
-                  ? baseStyle.txtStyleOutInterBold(sizes.size2, colors.black)
+                  ? baseStyle.txtStyleOutInterBold(sizes.size2, colors.black_00)
                   : baseStyle.txtStyleOutInterMedium(
                       sizes.size2,
                       colors.otpColor,
@@ -172,7 +172,7 @@ const DropDown = props => {
               typingTimeout = setTimeout(() => handleTypingEnd(value), 1000);
             }}
             placeholder={placeholder}
-            placeholderTextColor={colors.placeHolderTextColor}
+            grey_95={colors.grey_95}
             style={styles.placeholder}
             onFocus={() => setShowDropdown(true)}
             editable={editable}

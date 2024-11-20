@@ -45,7 +45,7 @@ const FilterList = ({data, onSelectionChange = () => {}, reset = () => {}}) => {
         style={styles.view(isSelected)}>
         <Text
           style={[
-            baseStyle.txtStyleOutInterRegular(sizes.size011, colors.textBlack),
+            baseStyle.txtStyleOutInterRegular(sizes.size011, colors.black_22),
           ]}>
           {item?.label || '--'}
         </Text>

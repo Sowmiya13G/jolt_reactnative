@@ -26,7 +26,7 @@ import {SCREENS} from '../../constant';
 import {iconPathURL} from '../../constant/iconpath';
 
 // styles
-import styles from './styles';
+import styles from './loginScreen';
 
 const LoginScreen = props => {
   //props
@@ -74,11 +74,11 @@ const LoginScreen = props => {
             text={item.label}
             icon={item.icon}
             spaceBetween={widthPercentageToDP('2%')}
-            textColor={colors.black}
+            textColor={colors.black_00}
             buttonStyle={styles.socialBtn}
             textStyle={baseStyle.txtStyleOutInterRegular(
               sizes.size2,
-              colors.black,
+              colors.black_00,
             )}
           />
         ))}
@@ -96,7 +96,7 @@ const LoginScreen = props => {
         <View style={[styles.subContainer]}>
           <Text
             style={[
-              baseStyle.txtStyleOutInterBold(sizes.size3, colors.textBlack),
+              baseStyle.txtStyleOutInterBold(sizes.size3, colors.black_22),
             ]}>
             {strings.loginWithUrAcc}
           </Text>
@@ -105,7 +105,7 @@ const LoginScreen = props => {
             style={[
               baseStyle.txtStyleOutInterRegular(
                 sizes.size011,
-                colors.secondaryGrey,
+                colors.grey_32,
               ),
             ]}>
             {strings.enjoyFeatures}
@@ -116,18 +116,18 @@ const LoginScreen = props => {
               <TextInputComponent
                 value={data?.email}
                 label={strings.emailAddress}
-                headerColor={colors.placeHolderTextColor}
+                headerColor={colors.grey_95}
                 errText={errData.email}
-                labelColor={colors.secondaryGrey}
+                labelColor={colors.grey_32}
                 CustomStyle={styles.input}
               />
               <Spacer height={hp('2%')} />
               <TextInputComponent
                 value={data?.password}
                 label={strings.password}
-                headerColor={colors.placeHolderTextColor}
+                headerColor={colors.grey_95}
                 errText={errData.password}
-                labelColor={colors.secondaryGrey}
+                labelColor={colors.grey_32}
                 CustomStyle={styles.input}
               />
             </>
@@ -136,9 +136,9 @@ const LoginScreen = props => {
             <TextInputComponent
               value={data?.phoneNo}
               label={strings.phoneNo}
-              headerColor={colors.placeHolderTextColor}
+              headerColor={colors.grey_95}
               errText={errData.phoneNo}
-              labelColor={colors.secondaryGrey}
+              labelColor={colors.grey_32}
             />
           )}
           <Spacer height={hp('2%')} />
@@ -161,7 +161,7 @@ const LoginScreen = props => {
               buttonStyle={styles.loginBtn}
               textStyle={baseStyle.txtStyleOutInterBold(
                 sizes.size2,
-                colors.white,
+                colors.white_FF,
               )}
             />
             <Spacer height={hp('2%')} />
@@ -170,11 +170,11 @@ const LoginScreen = props => {
               text={
                 type == 0 ? strings.loginWithMobile : strings.loginWithEmail
               }
-              textColor={colors.black}
+              textColor={colors.black_00}
               buttonStyle={styles.mobNoBtn}
               textStyle={baseStyle.txtStyleOutInterRegular(
                 sizes.size2,
-                colors.black,
+                colors.black_00,
               )}
             />
           </View>
@@ -184,7 +184,7 @@ const LoginScreen = props => {
               style={[
                 baseStyle.txtStyleOutInterMedium(
                   sizes.size02,
-                  colors.textGrey1,
+                  colors.grey_7C,
                 ),
               ]}>
               {strings.signInWith}
@@ -196,11 +196,11 @@ const LoginScreen = props => {
             text={strings.google}
             icon={iconPathURL.google}
             spaceBetween={widthPercentageToDP('2%')}
-            textColor={colors.black}
+            textColor={colors.black_00}
             buttonStyle={styles.socialBtn}
             textStyle={baseStyle.txtStyleOutInterRegular(
               sizes.size2,
-              colors.black,
+              colors.black_00,
             )}
           />
           <Spacer height={hp('2%')} />
@@ -213,7 +213,7 @@ const LoginScreen = props => {
   return (
     <CustomSafeArea
       style={styles.container}
-      statusBarBGColor={colors.basilGreen}>
+      statusBarBGColor={colors.green_3C}>
       <FlatList
         data={['LOGIN_SCREEN']}
         showsHorizontalScrollIndicator={false}
@@ -223,7 +223,7 @@ const LoginScreen = props => {
       <View style={styles.alignSelf}>
         <Text
           style={[
-            baseStyle.txtStyleOutInterMedium(sizes.size2, colors.textGrey),
+            baseStyle.txtStyleOutInterMedium(sizes.size2, colors.grey_085),
           ]}>
           {strings.noAcc}{' '}
           <Text

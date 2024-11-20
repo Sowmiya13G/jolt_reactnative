@@ -12,9 +12,9 @@ import Header from '../../components/header';
 
 // constant
 import { colors } from '../../constant/theme';
-import styles from './styles';
+import styles from '../styles/wallet';
 
-const AccountScreen = props => {
+const WalletScreen = props => {
   //props
 
   const renderBody = () => {
@@ -22,14 +22,14 @@ const AccountScreen = props => {
   };
 
   return (
-    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white}>
+    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white_FF}>
       <Header
         goBack={() => {
           NavigationService.goBack();
         }}
       />
       <FlatList
-        data={['MY_ACCOUNT']}
+        data={['MY_TRIP']}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
         renderItem={renderBody}
@@ -38,8 +38,8 @@ const AccountScreen = props => {
   );
 };
 
-AccountScreen.propTypes = {
+WalletScreen.propTypes = {
   route: PropTypes.shape({}),
 };
 
-export default AccountScreen;
+export default WalletScreen;

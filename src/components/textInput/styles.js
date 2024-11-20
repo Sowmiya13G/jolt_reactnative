@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
     paddingRight: wp('2%'),
     paddingLeft: wp('2%'),
     alignItems: 'center',
-    borderColor: colors.secondaryGrey,
+    borderColor: colors.grey_32,
     borderWidth: 1,
   },
   ro_textInputView: {
-    borderColor: colors.secondaryGrey,
+    borderColor: colors.grey_32,
     borderRadius: wp('2'),
     borderWidth: 1,
     width: '100%',
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: '100%',
-    borderColor: colors.secondaryGrey,
+    borderColor: colors.grey_32,
   },
   secureTextIconView: {
     flex: 0.13,

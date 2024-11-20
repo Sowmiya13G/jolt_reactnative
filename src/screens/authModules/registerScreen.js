@@ -33,7 +33,7 @@ import {baseStyle, colors, sizes} from '../../constant/theme';
 
 // styles
 import {validateRegisterForm} from '../../utils/validation';
-import styles from './styles';
+import styles from '../styles/registerScreen';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const initialData = {
@@ -100,8 +100,8 @@ const RegisterScreen = props => {
               placeholder={field.placeHolder}
               icon={field.rightIcon ? field.rightIcon : field.leftIcon}
               suffix={field.rightIcon ? field.rightIcon : false}
-              headerColor={colors.placeHolderTextColor}
-              placeHolderTextColor={colors.placeHolderColor}
+              headerColor={colors.grey_95}
+              grey_95={colors.grey_7F}
               CustomStyle={styles.input}
               showErrText={!!errData[field.key]}
               errText={errData[field.key]}
@@ -123,7 +123,7 @@ const RegisterScreen = props => {
         <Spacer height={hp('7%')} />
         <Text
           style={[
-            baseStyle.txtStyleOutInterSemiBold(sizes.size4, colors.black),
+            baseStyle.txtStyleOutInterSemiBold(sizes.size4, colors.black_00),
             styles.texAlign,
           ]}>
           {strings.createAcc}
@@ -131,7 +131,7 @@ const RegisterScreen = props => {
         <Spacer height={hp('2%')} />
         <Text
           style={[
-            baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black),
+            baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black_00),
             styles.texAlign,
           ]}>
           {strings.joinUs}
@@ -151,13 +151,13 @@ const RegisterScreen = props => {
           <Spacer width={widthPercentageToDP('2%')} />
           <Text
             style={[
-              baseStyle.txtStyleOutInterRegular(sizes.size02, colors.darkGrey),
+              baseStyle.txtStyleOutInterRegular(sizes.size02, colors.grey_37),
               styles.texAlign,
             ]}>
             {strings.iAgree}{' '}
             <Text
               style={[
-                baseStyle.txtStyleOutInterRegular(sizes.size02, colors.blue),
+                baseStyle.txtStyleOutInterRegular(sizes.size02, colors.blue_F4),
               ]}>
               {strings.policy}{' '}
             </Text>
@@ -165,14 +165,14 @@ const RegisterScreen = props => {
               style={[
                 baseStyle.txtStyleOutInterRegular(
                   sizes.size02,
-                  colors.darkGrey,
+                  colors.grey_37,
                 ),
               ]}>
               {strings.and}{' '}
             </Text>
             <Text
               style={[
-                baseStyle.txtStyleOutInterRegular(sizes.size02, colors.blue),
+                baseStyle.txtStyleOutInterRegular(sizes.size02, colors.blue_F4),
               ]}>
               {strings.terms}
             </Text>
@@ -184,11 +184,11 @@ const RegisterScreen = props => {
             handleSubmit();
           }}
           text={strings.register}
-          textColor={colors.white}
+          textColor={colors.white_FF}
           buttonStyle={styles.button}
           textStyle={baseStyle.txtStyleOutInterMedium(
             sizes.size2,
-            colors.white,
+            colors.white_FF,
           )}
         />
         <View style={styles.signInWithContainer}>
@@ -197,7 +197,7 @@ const RegisterScreen = props => {
             style={[
               baseStyle.txtStyleOutInterMedium(
                 sizes.size02,
-                colors.secondaryGrey,
+                colors.grey_32,
               ),
             ]}>
             {strings.or}
@@ -206,7 +206,7 @@ const RegisterScreen = props => {
         </View>
         <Text
           style={[
-            baseStyle.txtStyleOutInterMedium(sizes.size2, colors.textGrey),
+            baseStyle.txtStyleOutInterMedium(sizes.size2, colors.grey_085),
             styles.texAlign,
           ]}>
           {strings.alreadyHaveAcc}{' '}
@@ -223,7 +223,7 @@ const RegisterScreen = props => {
   };
 
   return (
-    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white}>
+    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white_FF}>
       <FlatList
         data={['FORGOT_PASSWORD']}
         showsHorizontalScrollIndicator={false}

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 // styles
-import styles from './styles';
+import styles from '../styles/otpScreen';
 
 // navigation
 import NavigationService from '../../navigation/NavigationService';
@@ -100,7 +100,7 @@ const OTPScreen = props => {
         <View>
           <Text
             style={[
-              baseStyle.txtStyleOutInterSemiBold(sizes.size4, colors.black),
+              baseStyle.txtStyleOutInterSemiBold(sizes.size4, colors.black_00),
               styles.texAlign,
             ]}>
             {strings.forgotPasswordTitle}
@@ -110,7 +110,7 @@ const OTPScreen = props => {
             style={[
               baseStyle.txtStyleOutInterRegular(
                 sizes.size2,
-                colors.secondaryGrey,
+                colors.grey_32,
               ),
               styles.texAlign,
               styles.titleMargin,
@@ -127,7 +127,7 @@ const OTPScreen = props => {
             codeInputFieldStyle={[
               styles.underlineStyleBase,
               {
-                borderColor: colors.lightGrey,
+                borderColor: colors.grey_80,
               },
             ]}
             onCodeFilled={code => {
@@ -144,7 +144,7 @@ const OTPScreen = props => {
             buttonStyle={styles.loginButton}
             textStyle={baseStyle.txtStyleOutInterSemiBold(
               sizes.size2,
-              colors.white,
+              colors.white_FF,
             )}
           />
           <Spacer height={hp('3%')} />
@@ -153,7 +153,7 @@ const OTPScreen = props => {
               style={[
                 baseStyle.txtStyleOutInterRegular(
                   sizes.size2,
-                  colors.lightGrey,
+                  colors.grey_80,
                 ),
               ]}>
               {strings.didNtGetCode}{' '}
@@ -177,7 +177,7 @@ const OTPScreen = props => {
                   style={[
                     baseStyle.txtStyleOutInterRegular(
                       sizes.size2,
-                      colors.white,
+                      colors.white_FF,
                     ),
                   ]}>
                   {strings.incorrectCode}
@@ -206,7 +206,7 @@ const OTPScreen = props => {
               NavigationService.goBack();
             }}
             title={strings.forgotPasswordTitle}
-            color={colors.textGrey}
+            color={colors.grey_32}
             leftIcon1={iconPathURL.backArrow}
           />
           <FlatList
@@ -243,7 +243,7 @@ style={[
     seconds == 0 && resendOTP();
   }}
   style={[
-    baseStyle.txtStyleOutInterRegular(sizes.size2, colors.blue),
+    baseStyle.txtStyleOutInterRegular(sizes.size2, colors.blue_F4),
     styles.underlinerText,
   ]}></Text>
  {seconds !== 0 &&

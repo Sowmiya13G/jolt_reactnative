@@ -60,10 +60,10 @@ const SearchComponent = props => {
     <View style={styles.viewContainer}>
       <TextInputComponent
         value={fromValue}
-        headerColor={colors.placeHolderTextColor}
+        headerColor={colors.grey_95}
         placeholder={fromPlaceHolder}
         CustomStyle={styles.input}
-        placeHolderTextColor={colors.placeHolderColor}
+        grey_95={colors.grey_7F}
         icon={iconPathURL.current}
         onChangeText={onChangeFromLocation}
         onFocus={() => handleFocus('from')}
@@ -84,10 +84,10 @@ const SearchComponent = props => {
       </View>
       <TextInputComponent
         value={toValue}
-        headerColor={colors.placeHolderTextColor}
+        headerColor={colors.grey_95}
         placeholder={toPlaceHolder}
         CustomStyle={styles.input}
-        placeHolderTextColor={colors.placeHolderColor}
+        grey_95={colors.grey_7F}
         icon={iconPathURL.destination}
         onChangeText={onChangeToLocation}
         onFocus={() => handleFocus('to')}

@@ -59,7 +59,7 @@ const baseStyle = {
   cardElevationStyle: () => ({
     elevation: 3,
     ...(Platform.OS == 'ios' && {
-      shadowColor: colors.black,
+      shadowColor: colors.black_00,
       shadowOpacity: 0.26,
       shadowOffset: {width: 1, height: 2},
       shadowRadius: 3,
@@ -81,51 +81,50 @@ const baseStyle = {
 
 const colors = {
   //black variants
-  black: '#000000',
-  secondaryBlack: '#0F0D23',
-  textBlack: '#222222',
-  titleBlack: '#101828',
+  black_00: '#000000',
+  black_23: '#0F0D23',
+  black_22: '#222222',
+  black_28: '#101828',
 
-  white: '#FFFFFF',
-  lightWhite: '#F9FAFB',
-  ghostWhite: '#F9FAFB',
+  white_FF: '#FFFFFF',
+  white_FB: '#F9FAFB',
 
-  cardShade: '#EAECF0',
 
   orange: '#FD6905',
   red: '#D92D20',
 
   // grey variants
-  grey: '#DDDDDD',
-  borderLightGrey: '#D1D5DB',
-  placeHolderColor: '#6C737F',
-  textGrey: '#667085',
-  borderGrey: '#D9D9D9',
-  secondaryGrey: '#333232',
-  placeHolderTextColor: '#697D95',
-  lightGrey: '#6B7280',
-  darkGrey: '#373737',
-  textGrey1: '#7C7C7C',
-  textGreyDark: '#505050',
-  lineGrey: '#EDEEF1',
-  boldBorderGrey: '#D0D5DD',
-  adGrey: '#ABABAB',
-  midGrey: '#555555',
-  mid1Grey: '#868685',
-  darkGrey2: '#475467',
-
+  grey_AB: '#ABABAB',
+  grey_DD: '#DDDDDD',
+  grey_DB: '#D1D5DB',
+  grey_D9: '#D9D9D9',
+  grey_F0: '#EAECF0',
+  grey_F1: '#EDEEF1',
+  grey_7F: '#6C737F',
+  grey_95: '#697D95',
+  grey_32: '#333232',
+  grey_37: '#373737',
+  grey_50: '#505050',
+  grey_55: '#555555',
+  grey_67: '#475467',
+  grey_7C: '#7C7C7C',
+  grey_80: '#6B7280',
+  grey_085: '#667085',
+  grey_685: '#868685',
+  grey_5DD: '#D0D5DD',
+  
   // green variants
-  lightGreen: '#24DD7D',
-  green: '#3AB72F',
-  basilGreen: '#8EB43C',
-  paleGreen: '#CDEED6',
-  pastelGreen: '#20463C',
-  splashGreen: '#129C38',
+  green_7D: '#24DD7D',
+  green_2F: '#3AB72F',
+  green_3C: '#8EB43C',
+  green_D6: '#CDEED6',
+  green_63C: '#20463C',
+  green_38: '#129C38',
 
   // blue variants
-  blue: '#0056F4',
+  blue_F4: '#0056F4',
 
-  yellow: '#FDC400',
+  yellow_00: '#FDC400',
 
   transparent: 'transparent',
 };

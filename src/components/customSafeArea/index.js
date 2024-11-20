@@ -19,8 +19,8 @@ function CustomSafeArea(props) {
       justifyContent: 'center',
     },
     backgroundImg,
-    backgroundColor = colors.white,
-    statusBarBGColor = colors.white,
+    backgroundColor = colors.white_FF,
+    statusBarBGColor = colors.white_FF,
     isCustomFooter,
     footerComp = () => <></>,
   } = props;

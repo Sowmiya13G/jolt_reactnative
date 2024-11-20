@@ -27,7 +27,7 @@ import {baseStyle, colors, sizes} from '../../constant/theme';
 import {getNextDates, getSessionText} from '../../utils/helperFunctions';
 
 // styles
-import styles from './styles';
+import styles from '../styles/homeScreen';
 
 const HomeScreen = props => {
   //props
@@ -91,7 +91,7 @@ const HomeScreen = props => {
         <Spacer height={hp('3%')} />
         <Text
           style={[
-            baseStyle.txtStyleOutInterRegular(sizes.size3, colors.textBlack),
+            baseStyle.txtStyleOutInterRegular(sizes.size3, colors.black_22),
           ]}>
           {dashboard.availableDates}
         </Text>
@@ -115,7 +115,7 @@ const HomeScreen = props => {
             })
           }
           style={[
-            baseStyle.txtStyleOutInterRegular(sizes.size02, colors.textBlack),
+            baseStyle.txtStyleOutInterRegular(sizes.size02, colors.black_22),
             styles.texAlign
           ]}>
           GO TO SEATS
@@ -125,18 +125,18 @@ const HomeScreen = props => {
   };
 
   return (
-    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white}>
+    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white_FF}>
       <Header
         goBack={() => {
           NavigationService.goBack();
         }}
         title={strings.forgotPasswordTitle}
-        color={colors.titleBlack}
+        color={colors.black_28}
         isLeftIcon={false}
         isCommonHeader={false}
         titleData={headerData}
         isHomeHeader={true}
-        sessionColor={colors.textGrey}
+        sessionColor={colors.grey_085}
       />
       <FlatList
         data={['HOME_SCREEN']}

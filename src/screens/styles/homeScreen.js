@@ -12,11 +12,11 @@ const styles = StyleSheet.create({
   subContainer: {
     marginHorizontal: wp('5%'),
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
   },
   horizontalLine: {
     height: wp('0.2%'),
-    backgroundColor: colors.borderLightGrey,
+    backgroundColor: colors.grey_DB,
   },
   texAlign: {
     textAlign: 'center',
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     marginHorizontal: wp('15%'),
   },
   textStyle: {
-    ...baseStyle.txtStyleOutInterSemiBold(sizes.size2, colors.white),
+    ...baseStyle.txtStyleOutInterSemiBold(sizes.size2, colors.white_FF),
     marginLeft: wp('3%'),
   },
 });

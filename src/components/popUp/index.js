@@ -26,14 +26,14 @@ const PopUp = props => {
       <Spacer height={heightPercentageToDP('2%')} />
       <Text
         style={[
-          baseStyle.txtStyleOutInterMedium(sizes.size4, colors.secondaryGrey),
+          baseStyle.txtStyleOutInterMedium(sizes.size4, colors.grey_32),
         ]}>
         {title}
       </Text>
       <Spacer height={heightPercentageToDP('2%')} />
       <Text
         style={[
-          baseStyle.txtStyleOutInterRegular(sizes.size2, colors.secondaryGrey),
+          baseStyle.txtStyleOutInterRegular(sizes.size2, colors.grey_32),
           styles.texAlign,
         ]}>
         {disc}

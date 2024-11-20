@@ -8,15 +8,15 @@ import {baseStyle, colors} from '../../constant/theme';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lineGrey,
+    backgroundColor: colors.grey_F1,
   },
   subContainer: {
     flex: 1,
-    backgroundColor: colors.lineGrey,
+    backgroundColor: colors.grey_F1,
   },
   horizontalLine: {
     height: wp('0.3%'),
-    backgroundColor: colors.borderLightGrey,
+    backgroundColor: colors.grey_DB,
   },
   location: {
     ...baseStyle.iconStyle('7%'),
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
 
   scrollView: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     width: '100%',
     height: heightPercentageToDP('50%'),
   },
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContainer: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     borderRadius: 10,
     padding: 20,
     width: '90%',
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   cancel: {
     ...baseStyle.iconStyle('4%'),
-    tintColor: colors.black,
+    tintColor: colors.black_00,
   },
   listItem: {
     padding: 10,

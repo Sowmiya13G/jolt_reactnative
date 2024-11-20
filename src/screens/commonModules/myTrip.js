@@ -12,7 +12,7 @@ import Header from '../../components/header';
 
 // constant
 import { colors } from '../../constant/theme';
-import styles from './styles';
+import styles from '../styles/myTrip';
 
 const MyTripScreen = props => {
   //props
@@ -22,7 +22,7 @@ const MyTripScreen = props => {
   };
 
   return (
-    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white}>
+    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white_FF}>
       <Header
         goBack={() => {
           NavigationService.goBack();

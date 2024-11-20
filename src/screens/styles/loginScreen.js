@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   banner: {
     height: hp('20%'),
-    backgroundColor: colors.basilGreen,
+    backgroundColor: colors.green_3C,
   },
   bus: {
     height: hp('20%'),
@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
     // paddingHorizontal: wp('5%'),
   },
   mobNoBtn: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     borderRadius: wp('3%'),
     paddingVertical: wp('4%'),
     borderWidth: wp('0.1%'),
-    borderColor: colors.black,
+    borderColor: colors.black_00,
     alignItems: 'center',
   },
   loginBtn: {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    borderColor: colors.green,
+    borderColor: colors.green_2F,
     borderWidth: wp('0.5%'),
     ...baseStyle.iconStyle(wp('3.7%')),
     borderRadius: wp('5%'),
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     height: wp('0.1%'),
-    backgroundColor: colors.secondaryGrey,
+    backgroundColor: colors.grey_32,
     marginHorizontal: wp('2%'),
   },
   socialBtn: {
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     borderRadius: wp('2%'),
     paddingVertical: hp('2%'),
     marginHorizontal: wp('1.5%'),
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     marginVertical: hp('1%'),
   },
   input: {
-    borderColor: colors.borderGrey,
+    borderColor: colors.grey_D9,
   },
 });
 

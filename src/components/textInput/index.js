@@ -24,10 +24,10 @@ const TextInputComponent = props => {
     label,
     error,
     verification,
-    labelColor = colors.secondaryGrey,
+    labelColor = colors.grey_32,
     labelTextSize = '1.8%',
     placeholder = strings.enterHere,
-    placeHolderTextColor = colors.placeHolderTextColor,
+    grey_95 = colors.grey_95,
     defaultValue,
     maxLength,
     keyboardType,
@@ -82,13 +82,13 @@ const TextInputComponent = props => {
 
         <TextInput
           style={[
-            baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black),
+            baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black_00),
             styles.textInput,
             {flex: Boolean(icon) ? 0.87 : 1},
             customInputStyle,
           ]}
           placeholder={placeholder}
-          placeholderTextColor={placeHolderTextColor}
+          grey_95={grey_95}
           defaultValue={defaultValue}
           maxLength={maxLength}
           keyboardType={keyboardType}
@@ -145,7 +145,7 @@ TextInputComponent.propTypes = {
   labelColor: PropTypes.string,
   labelTextSize: PropTypes.string,
   placeholder: PropTypes.string,
-  placeHolderTextColor: PropTypes.string,
+  grey_95: PropTypes.string,
   defaultValue: PropTypes.string,
   maxLength: PropTypes.number,
   keyboardType: PropTypes.string,
@@ -170,10 +170,10 @@ TextInputComponent.propTypes = {
 };
 
 TextInputComponent.defaultProps = {
-  labelColor: colors.secondaryGrey,
+  labelColor: colors.grey_32,
   labelTextSize: '1.8%',
   placeholder: strings.enterHere,
-  placeHolderTextColor: colors.placeHolderTextColor,
+  grey_95: colors.grey_95,
   secureTextEntry: false,
   editable: true,
   suffix: false,

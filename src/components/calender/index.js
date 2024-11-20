@@ -47,7 +47,7 @@ const CalenderComponent = ({
     return (
       <View style={styles.customHeaderContainer}>
         <Text
-          style={[baseStyle.txtStyleOutInterBold(sizes.size3, colors.midGrey)]}>
+          style={[baseStyle.txtStyleOutInterBold(sizes.size3, colors.grey_55)]}>
           {currentMonthLabel}
         </Text>
         <View style={styles.arrowsContainer}>
@@ -86,7 +86,7 @@ const CalenderComponent = ({
           <Spacer height={hp('2%')} />
           <Text
             style={[
-              baseStyle.txtStyleOutInterRegular(sizes.size4, colors.black),
+              baseStyle.txtStyleOutInterRegular(sizes.size4, colors.black_00),
               styles.date,
             ]}>
             {date
@@ -119,13 +119,13 @@ const CalenderComponent = ({
                 selected: true,
                 customStyles: {
                   container: {
-                    borderColor: colors.green,
+                    borderColor: colors.green_2F,
                     borderRadius: 5,
                     backgroundColor: colors.transparent,
                     borderWidth: 1,
                   },
                   text: {
-                    color: colors.black,
+                    color: colors.black_00,
                   },
                 },
               },
@@ -133,11 +133,11 @@ const CalenderComponent = ({
                 selected: true,
                 customStyles: {
                   container: {
-                    backgroundColor: colors.green,
+                    backgroundColor: colors.green_2F,
                     borderRadius: 5,
                   },
                   text: {
-                    color: colors.white,
+                    color: colors.white_FF,
                   },
                 },
               },
@@ -149,21 +149,21 @@ const CalenderComponent = ({
             <Button
               onPress={() => setShowCalenderModal(false)}
               text={dashboard.cancel}
-              textColor={colors.black}
+              textColor={colors.black_00}
               buttonStyle={styles.cancelBtn}
               textStyle={baseStyle.txtStyleOutInterRegular(
                 sizes.size2,
-                colors.black,
+                colors.black_00,
               )}
             />
             <Button
               onPress={() => setShowCalenderModal(false)}
               text={dashboard.ok}
-              textColor={colors.black}
+              textColor={colors.black_00}
               buttonStyle={styles.okBtn}
               textStyle={baseStyle.txtStyleOutInterMedium(
                 sizes.size2,
-                colors.white,
+                colors.white_FF,
               )}
             />
           </View>

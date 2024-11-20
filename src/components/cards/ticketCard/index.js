@@ -29,7 +29,7 @@ const TicketCard = props => {
       <View style={styles.seatsView}>
         <Text
           style={[
-            baseStyle.txtStyleOutInterSemiBold(sizes.size02, colors.white),
+            baseStyle.txtStyleOutInterSemiBold(sizes.size02, colors.white_FF),
           ]}>
           {data?.seatsLeft} Seats Left
         </Text>
@@ -41,7 +41,7 @@ const TicketCard = props => {
               style={[
                 baseStyle.txtStyleOutInterMedium(
                   sizes.size011,
-                  colors.textBlack,
+                  colors.black_22,
                 ),
               ]}>
               {x}
@@ -52,7 +52,7 @@ const TicketCard = props => {
       <Spacer height={hp('2%')} />
       <Text
         style={[
-          baseStyle.txtStyleOutInterSemiBold(sizes.size02, colors.midGrey),
+          baseStyle.txtStyleOutInterSemiBold(sizes.size02, colors.grey_55),
           styles.paddingHorizontal,
         ]}>
         {data.name}
@@ -61,7 +61,7 @@ const TicketCard = props => {
       <View style={[styles.row]}>
         <Text
           style={[
-            baseStyle.txtStyleOutInterSemiBold(sizes.size2, colors.darkGrey2),
+            baseStyle.txtStyleOutInterSemiBold(sizes.size2, colors.grey_67),
           ]}>
           {data.timePeriod[0]}
         </Text>
@@ -69,7 +69,7 @@ const TicketCard = props => {
         <View style={styles.duration}>
           <Text
             style={[
-              baseStyle.txtStyleOutInterRegular(sizes.size02, colors.midGrey),
+              baseStyle.txtStyleOutInterRegular(sizes.size02, colors.grey_55),
             ]}>
             {data.duration}
           </Text>
@@ -77,7 +77,7 @@ const TicketCard = props => {
         <View style={styles.horizontalLine} />
         <Text
           style={[
-            baseStyle.txtStyleOutInterSemiBold(sizes.size2, colors.darkGrey2),
+            baseStyle.txtStyleOutInterSemiBold(sizes.size2, colors.grey_67),
           ]}>
           {data.timePeriod[1]}
         </Text>
@@ -95,7 +95,7 @@ const TicketCard = props => {
                 style={[
                   baseStyle.txtStyleOutInterRegular(
                     sizes.size02,
-                    isSelected ? colors.black : colors.midGrey,
+                    isSelected ? colors.black_00 : colors.grey_55,
                   ),
                 ]}>
                 {`${x?.type} (${x?.seats})`}
@@ -104,7 +104,7 @@ const TicketCard = props => {
                 style={[
                   baseStyle.txtStyleOutInterBold(
                     sizes.size02,
-                    isSelected ? colors.black : colors.midGrey,
+                    isSelected ? colors.black_00 : colors.grey_55,
                   ),
                 ]}>
                 {`$ ${x?.price}`}
@@ -118,7 +118,7 @@ const TicketCard = props => {
       <Spacer height={hp('1%')} />
       <Text
         style={[
-          baseStyle.txtStyleOutInterBold(sizes.size3, colors.secondaryGrey),
+          baseStyle.txtStyleOutInterBold(sizes.size3, colors.grey_32),
           styles.endAlign,
         ]}>
         INR200
@@ -128,7 +128,7 @@ const TicketCard = props => {
         <View style={styles.review}>
           <Text
             style={[
-              baseStyle.txtStyleOutInterRegular(sizes.size02, colors.darkGrey2),
+              baseStyle.txtStyleOutInterRegular(sizes.size02, colors.grey_67),
             ]}>
             Reviews{' '}
           </Text>
@@ -137,7 +137,7 @@ const TicketCard = props => {
               style={[
                 baseStyle.txtStyleOutInterRegular(
                   sizes.size011,
-                  colors.secondaryBlack,
+                  colors.black_23,
                 ),
               ]}>
               {data.review}
@@ -153,7 +153,7 @@ const TicketCard = props => {
           buttonStyle={styles.button}
           textStyle={baseStyle.txtStyleOutInterSemiBold(
             sizes.size02,
-            colors.white,
+            colors.white_FF,
           )}
         />
       </View>

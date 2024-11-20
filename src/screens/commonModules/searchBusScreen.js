@@ -29,7 +29,7 @@ import {baseStyle, colors, sizes} from '../../constant/theme';
 // styles
 import {iconPathURL} from '../../constant/iconpath';
 import {filterData} from '../../constant/staticData';
-import styles from './styles';
+import styles from '../styles/searchBusScreen';
 
 const listData = [
   {
@@ -152,7 +152,7 @@ const SearchBusScreen = props => {
                 style={[
                   baseStyle.txtStyleOutInterSemiBold(
                     sizes.size3,
-                    colors.secondaryBlack,
+                    colors.black_23,
                   ),
                 ]}>
                 All Reviews (33)
@@ -176,13 +176,13 @@ const SearchBusScreen = props => {
   };
 
   return (
-    <CustomSafeArea style={styles.container} statusBarBGColor={colors.lineGrey}>
+    <CustomSafeArea style={styles.container} statusBarBGColor={colors.grey_F1}>
       <Header
         goBack={() => {
           NavigationService.goBack();
         }}
         title={`${data?.from} To ${data?.to}`}
-        color={colors.black}
+        color={colors.black_00}
         isRightIcon={true}
         rightIcon={iconPathURL.calender}
         date={data?.date}

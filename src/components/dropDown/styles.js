@@ -11,24 +11,24 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     width: '100%',
-    backgroundColor: colors.ghostWhite,
+    backgroundColor: colors.white_FB,
     height: hp('6%'),
     paddingLeft: wp('2%'),
     paddingRight: wp('2%'),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderColor: colors.borderLightGrey,
+    borderColor: colors.grey_DB,
     borderRadius: wp('2'),
     borderWidth: 1,
   },
   dropdownContainer: {
     width: '100%',
-    borderColor: colors.borderLightGrey,
+    borderColor: colors.grey_DB,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     padding: wp('2%'),
-    backgroundColor: colors.ghostWhite,
+    backgroundColor: colors.white_FB,
     borderRadius: wp('2'),
     borderWidth: 1,
     borderTopWidth: 0,
@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
   },
 
   placeholder: {
-    ...baseStyle.txtStyleOutInterRegular(sizes.size2, colors.darkGrey),
+    ...baseStyle.txtStyleOutInterRegular(sizes.size2, colors.grey_37),
     flex: 1,
     paddingLeft:"5%"
   },
   nodataText: {
     flex: 1,
-    ...baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black),
+    ...baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black_00),
     textAlign: 'center',
   },
 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     marginHorizontal: wp('2%'),
   },
   blackColor: {
-    color: colors.black,
+    color: colors.black_00,
   },
   fields: {
     backgroundColor: colors.fieldGray,

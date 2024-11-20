@@ -22,7 +22,7 @@ import { strings } from '../../constant/strings';
 import { baseStyle, colors, sizes } from '../../constant/theme';
 
 // styles
-import styles from './styles';
+import styles from '../styles/forgotPassword';
 
 const ForgotPasswordScreen = props => {
   //props
@@ -49,7 +49,7 @@ const ForgotPasswordScreen = props => {
         <Spacer height={hp('10%')} />
         <Text
           style={[
-            baseStyle.txtStyleOutInterSemiBold(sizes.size4, colors.textBlack),
+            baseStyle.txtStyleOutInterSemiBold(sizes.size4, colors.black_22),
             styles.texAlign,
           ]}>
           {isForgotPasswordScreen
@@ -59,7 +59,7 @@ const ForgotPasswordScreen = props => {
         <Spacer height={hp('2%')} />
         <Text
           style={[
-            baseStyle.txtStyleOutInterRegular(sizes.size2, colors.textBlack),
+            baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black_22),
             styles.texAlign,
           ]}>
           {isForgotPasswordScreen
@@ -70,9 +70,9 @@ const ForgotPasswordScreen = props => {
         {isForgotPasswordScreen ? (
           <TextInputComponent
             value={data?.email}
-            headerColor={colors.placeHolderTextColor}
+            headerColor={colors.grey_95}
             errText={errData?.email}
-            labelColor={colors.secondaryGrey}
+            labelColor={colors.grey_32}
             placeholder={strings.email}
             icon={iconPathURL.email}
           />
@@ -80,22 +80,22 @@ const ForgotPasswordScreen = props => {
           <>
             <TextInputComponent
               value={data?.newPassword}
-              headerColor={colors.placeHolderTextColor}
+              headerColor={colors.grey_95}
               errText={errData?.newPassword}
               placeholder={strings.password}
               icon={iconPathURL.lock}
               CustomStyle={styles.input}
-              placeHolderTextColor={colors.placeHolderColor}
+              grey_95={colors.grey_7F}
             />
             <Spacer height={hp('2%')} />
             <TextInputComponent
               value={data?.confirmPassword}
-              headerColor={colors.placeHolderTextColor}
+              headerColor={colors.grey_95}
               errText={errData?.confirmPassword}
               placeholder={strings.confirmPassword}
               icon={iconPathURL.lock}
               CustomStyle={styles.input}
-              placeHolderTextColor={colors.placeHolderColor}
+              grey_95={colors.grey_7F}
             />
           </>
         )}
@@ -111,11 +111,11 @@ const ForgotPasswordScreen = props => {
           text={
             isForgotPasswordScreen ? strings.sendCode : strings.resetPassword
           }
-          textColor={colors.white}
+          textColor={colors.white_FF}
           buttonStyle={styles.button}
           textStyle={baseStyle.txtStyleOutInterMedium(
             sizes.size2,
-            colors.white,
+            colors.white_FF,
           )}
         />
       </View>
@@ -123,13 +123,13 @@ const ForgotPasswordScreen = props => {
   };
 
   return (
-    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white}>
+    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white_FF}>
       <Header
         goBack={() => {
           NavigationService.goBack();
         }}
         title={strings.forgotPasswordTitle}
-        color={colors.textGrey}
+        color={colors.grey_32}
         leftIcon1={iconPathURL.backArrow}
       />
       <FlatList

@@ -1,3 +1,4 @@
+// Account Screen
 import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
   subContainer: {
     marginHorizontal: wp('5%'),
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
   },
   texAlign: {
     textAlign: 'center',
@@ -24,8 +25,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    backgroundColor: colors.ghostWhite,
-    borderColor: colors.borderLightGrey,
+    backgroundColor: colors.white_FB,
+    borderColor: colors.grey_DB,
   },
   inputStyle: {
     paddingLeft: wp('5%'),
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     height: wp('0.1%'),
-    backgroundColor: colors.secondaryGrey,
+    backgroundColor: colors.grey_32,
     marginHorizontal: wp('2%'),
   },
   row: {
@@ -55,8 +56,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   dropDown: {
-    backgroundColor: colors.ghostWhite,
-    borderColor: colors.borderLightGrey,
+    backgroundColor: colors.white_FB,
+    borderColor: colors.grey_DB,
   },
 });
 

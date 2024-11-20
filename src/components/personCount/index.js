@@ -41,11 +41,11 @@ const PersonCount = props => {
         />
         <Spacer width={widthPercentageToDP('2%')} />
         <Text
-          style={[baseStyle.txtStyleOutInterMedium(sizes.size3, colors.black)]}>
+          style={[baseStyle.txtStyleOutInterMedium(sizes.size3, colors.black_00)]}>
           {count}{' '}
           <Text
             style={[
-              baseStyle.txtStyleOutInterRegular(sizes.size3, colors.black),
+              baseStyle.txtStyleOutInterRegular(sizes.size3, colors.black_00),
             ]}>
             {count > 1 ? dashboard.persons : dashboard.person}
           </Text>

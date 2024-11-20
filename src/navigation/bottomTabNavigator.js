@@ -92,7 +92,7 @@ const BottomNavigation = () => {
                         )
                       : baseStyle.txtStyleOutInterRegular(
                           sizes.size01,
-                          colors.grey,
+                          colors.grey_DD,
                         ),
                   ]}>
                   {tab.title}
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     height: Platform.OS === 'android' ? hp('7%') : hp('9%'),
     position: 'absolute',
     bottom: 0,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   icon: isActive => ({
     resizeMode: 'contain',
     ...baseStyle.iconStyle(isActive ? '7%' : '5%'),
-    tintColor: isActive ? colors.orange : colors.grey,
+    tintColor: isActive ? colors.orange : colors.grey_DD,
   }),
   activeTab: {
     borderTopWidth: 3,

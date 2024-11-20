@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   subContainer: {
     marginHorizontal: wp('5%'),
     flex: 0.8,
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -23,7 +23,7 @@ import {strings} from '../../constant/strings';
 import {baseStyle, colors, sizes} from '../../constant/theme';
 
 // styles
-import styles from './styles';
+import styles from '../styles/onboarding';
 
 const OnboardingScreen = props => {
   //props
@@ -91,13 +91,13 @@ const OnboardingScreen = props => {
         <Spacer width={wp('3%')} />
         <View>
           <Text
-            style={[baseStyle.txtStyleOutInterBold(sizes.size3, colors.black)]}>
+            style={[baseStyle.txtStyleOutInterBold(sizes.size3, colors.black_00)]}>
             {strings.joltBus}
           </Text>
           <Spacer height={hp('0.5%')} />
           <Text
             style={[
-              baseStyle.txtStyleOutInterRegular(sizes.size02, colors.black),
+              baseStyle.txtStyleOutInterRegular(sizes.size02, colors.black_00),
             ]}>
             {strings.futureTransportation}
           </Text>
@@ -118,7 +118,7 @@ const OnboardingScreen = props => {
               <Spacer height={hp('3%')} />
               <Text
                 style={[
-                  baseStyle.txtStyleOutInterSemiBold(sizes.size3, colors.black),
+                  baseStyle.txtStyleOutInterSemiBold(sizes.size3, colors.black_00),
                   styles.textAlign,
                 ]}>
                 {item.title}
@@ -126,7 +126,7 @@ const OnboardingScreen = props => {
               <Spacer height={hp('3%')} />
               <Text
                 style={[
-                  baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black),
+                  baseStyle.txtStyleOutInterRegular(sizes.size2, colors.black_00),
                   styles.textAlign,
                 ]}>
                 {item.disc}
@@ -144,7 +144,7 @@ const OnboardingScreen = props => {
         {onboardingData.map((_, index) => {
           const backgroundColor = animation.interpolate({
             inputRange: [index - 1, index, index + 1],
-            outputRange: [colors.grey, colors.lightGreen, colors.grey],
+            outputRange: [colors.grey_DD, colors.green_7D, colors.grey_DD],
             extrapolate: 'clamp',
           });
 
@@ -177,13 +177,13 @@ const OnboardingScreen = props => {
             // handleCompleteSlider();
           }}
           text={strings.skip}
-          textColor={colors.textGreyDark}
+          textColor={colors.grey_50}
           buttonStyle={styles.skipButton}
         />
         <Button
           onPress={() => goToNextPage()}
           text={pageIndex === 0 ? strings.getStart : strings.next}
-          textColor={colors.white}
+          textColor={colors.white_FF}
           buttonStyle={styles.nextButton}
         />
       </View>

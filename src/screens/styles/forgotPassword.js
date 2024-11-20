@@ -1,3 +1,4 @@
+// Forgot password
 import {StyleSheet} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {colors} from '../../constant/theme';
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
   subContainer: {
     marginHorizontal: wp('5%'),
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
   },
   texAlign: {
     textAlign: 'center',
@@ -21,8 +22,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    backgroundColor: colors.ghostWhite,
-    borderColor: colors.borderLightGrey,
+    backgroundColor: colors.white_FB,
+    borderColor: colors.grey_DB,
   },
 });
 

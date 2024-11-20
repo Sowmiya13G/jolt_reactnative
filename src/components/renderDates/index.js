@@ -63,7 +63,7 @@ const RenderDates = ({data, isDates = true, isTrips = false, onTripSelect}) => {
           style={[
             baseStyle.txtStyleOutInterRegular(
               sizes.size011,
-              isSelected ? colors.white : colors.textBlack,
+              isSelected ? colors.white_FF : colors.black_22,
             ),
           ]}>
           {item?.label}
@@ -82,7 +82,7 @@ const RenderDates = ({data, isDates = true, isTrips = false, onTripSelect}) => {
           style={[
             baseStyle.txtStyleOutInterRegular(
               sizes.size011,
-              isSelected ? colors.white : colors.textBlack,
+              isSelected ? colors.white_FF : colors.black_22,
             ),
           ]}>
           {item?.from}
@@ -97,7 +97,7 @@ const RenderDates = ({data, isDates = true, isTrips = false, onTripSelect}) => {
           style={[
             baseStyle.txtStyleOutInterRegular(
               sizes.size011,
-              isSelected ? colors.white : colors.textBlack,
+              isSelected ? colors.white_FF : colors.black_22,
             ),
           ]}>
           {item?.to}

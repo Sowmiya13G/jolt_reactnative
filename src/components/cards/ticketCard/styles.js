@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
     marginHorizontal: wp('5%'),
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     borderRadius: wp('2%'),
     paddingVertical: '4%',
     position: 'relative',
@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp('2%'),
     paddingVertical: wp('0.5%'),
     marginRight: wp('1%'),
-    backgroundColor: colors.ghostWhite,
-    borderColor: colors.lineGrey,
+    backgroundColor: colors.white_FB,
+    borderColor: colors.grey_F1,
   },
   seatsView: {
     position: 'absolute',
-    backgroundColor: colors.green,
+    backgroundColor: colors.green_2F,
     right: 0,
     top: wp('4%'),
     paddingHorizontal: wp('2%'),
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   horizontalLine: {
     height: wp('0.4%'),
-    backgroundColor: colors.lineGrey,
+    backgroundColor: colors.grey_F1,
     width: '7%',
     marginHorizontal: wp('1.5%'),
   },
@@ -55,11 +55,11 @@ const styles = StyleSheet.create({
     borderRadius: wp('1.5%'),
     paddingHorizontal: wp('2%'),
     paddingVertical: wp('0.5%'),
-    backgroundColor: colors.lineGrey,
+    backgroundColor: colors.grey_F1,
   },
   horizontalLineView: {
     height: wp('0.5%'),
-    backgroundColor: colors.lineGrey,
+    backgroundColor: colors.grey_F1,
     width: '100%',
   },
   endAlign: {
@@ -74,14 +74,14 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     ...baseStyle.iconStyle('3%'),
-    tintColor: colors.black,
+    tintColor: colors.black_00,
     marginLeft:wp("1%")
   },
   review: {
     borderRadius: wp('2%'),
     paddingHorizontal: wp('2%'),
     paddingVertical: wp('1.3%'),
-    backgroundColor: colors.lineGrey,
+    backgroundColor: colors.grey_F1,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   borderRadius: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     borderRadius: wp('1%'),
     padding: wp('0.5%'),
   },
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     borderRadius: wp('3%'),
     paddingHorizontal: wp('2.5%'),
     paddingVertical: wp('2%'),
-    borderColor: isSelected ? colors.orange : colors.lineGrey,
+    borderColor: isSelected ? colors.orange : colors.grey_F1,
     borderWidth: wp('0.3%'),
     marginRight: wp('2%'),
   }),

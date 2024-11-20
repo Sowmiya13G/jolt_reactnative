@@ -31,7 +31,7 @@ import {dashboard, PLACEHOLDERS} from '../../constant/strings';
 import {baseStyle, colors, sizes} from '../../constant/theme';
 
 // styles
-import styles from './styles';
+import styles from '../styles/searchScreen';
 
 const SearchScreen = props => {
   //props
@@ -117,14 +117,14 @@ const SearchScreen = props => {
             <Spacer width={wp('3%')} />
             <Text
               style={[
-                baseStyle.txtStyleOutInterRegular(sizes.size2, colors.adGrey),
+                baseStyle.txtStyleOutInterRegular(sizes.size2, colors.grey_AB),
               ]}>
               {item.city}
             </Text>
           </View>
           <Text
             style={[
-              baseStyle.txtStyleOutInterRegular(sizes.size2, colors.adGrey),
+              baseStyle.txtStyleOutInterRegular(sizes.size2, colors.grey_AB),
             ]}>
             {dashboard.city}
           </Text>
@@ -160,7 +160,7 @@ const SearchScreen = props => {
               style={[
                 baseStyle.txtStyleOutInterRegular(
                   sizes.size3,
-                  colors.textBlack,
+                  colors.black_22,
                 ),
               ]}>
               {dashboard.recentTrips}
@@ -180,13 +180,13 @@ const SearchScreen = props => {
   };
 
   return (
-    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white}>
+    <CustomSafeArea style={styles.container} statusBarBGColor={colors.white_FF}>
       <Header
         goBack={() => {
           NavigationService.goBack();
         }}
         title={dashboard.searchRoute}
-        color={colors.textGrey}
+        color={colors.grey_32}
       />
       <TouchableWithoutFeedback onPress={() => setFocusedInput(null)}>
         {renderBody()}

@@ -5,10 +5,10 @@ import {baseStyle, colors} from '../../../constant/theme';
 const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.white_FF,
     borderRadius: wp('3%'),
     paddingVertical: '3%',
-    borderColor: colors.lineGrey,
+    borderColor: colors.grey_F1,
     borderWidth: 1,
     borderRadius: wp('1%'),
     paddingHorizontal: wp('2%'),

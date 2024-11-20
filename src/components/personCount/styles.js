@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
   icon: {
     ...baseStyle.iconStyle('4%'),
     resizeMode: 'contain',
-    tintColor: colors.black,
+    tintColor: colors.black_00,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: colors.paleGreen,
+    backgroundColor: colors.green_D6,
     borderRadius: wp('1%'),
     paddingVertical: wp('2%'),
   },
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
   buttonIcon: {
     ...baseStyle.iconStyle('4%'),
     resizeMode: 'contain',
-    tintColor: colors.pastelGreen,
+    tintColor: colors.green_63C,
   },
   verticalLine: {
     width: 1,
-    backgroundColor: colors.titleBlack,
+    backgroundColor: colors.black_28,
     marginVertical: wp('0.5%'),
   },
 });
