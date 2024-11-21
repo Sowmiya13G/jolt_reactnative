@@ -26,7 +26,7 @@ import {SCREENS} from '../../constant';
 import {iconPathURL} from '../../constant/iconpath';
 
 // styles
-import styles from './loginScreen';
+import styles from '../styles/loginScreen';
 
 const LoginScreen = props => {
   //props

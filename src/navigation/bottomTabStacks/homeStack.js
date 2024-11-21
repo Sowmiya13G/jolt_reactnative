@@ -22,6 +22,10 @@ const DashboardStack = () => {
       ScreenName: SCREENS.SEARCH_BUS_SCREEN,
       Component: ScreenName.SearchBusScreen,
     },
+    {
+      ScreenName: SCREENS.SELECT_BOARDING_POINTS,
+      Component: ScreenName.SearchBusScreen,
+    },
   ];
 
   return (

@@ -30,6 +30,7 @@ import {baseStyle, colors, sizes} from '../../constant/theme';
 import {iconPathURL} from '../../constant/iconpath';
 import {filterData} from '../../constant/staticData';
 import styles from '../styles/searchBusScreen';
+import {SCREENS} from '../../constant';
 
 const listData = [
   {
@@ -130,7 +131,14 @@ const SearchBusScreen = props => {
         <Spacer height={hp('3%')} />
         <TicketCard
           data={item}
-          selectSeat={() => {}}
+          selectSeat={() =>
+            NavigationService.navigate(SCREENS.SELECT_BOARDING_POINTS, {
+              data: {
+                item: item,
+                routeAndDate:data
+              },
+            })
+          }
           viewReview={() => setModalVisible(true)}
         />
       </View>

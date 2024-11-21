@@ -19,5 +19,6 @@ const SCREENS = {
   BOTTOM_TAB_NAV: 'BottomTabNavigator',
   SEARCH_SCREEN: 'SearchScreen',
   SEARCH_BUS_SCREEN: 'SearchBusScreen',
+  SELECT_BOARDING_POINTS:"SelectBoardingPoints"
 };
 export {SCREENS, iconPath, theme};
